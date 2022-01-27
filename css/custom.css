@@ -9,3 +9,11 @@
   padding-right: 0 !important;
   margin-right: 0 !important;
 }
+#facilities-section,
+#blog-section {
+  padding-top: 3em;
+  padding-bottom: 1em;
+}
+#facilities-section {
+  background-color: #f5f5f5;
+}
