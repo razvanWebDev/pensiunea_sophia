@@ -42,8 +42,8 @@
 						<nav class="primary-menu">
 
 							<ul class="menu-container">
-								<li class="menu-item current">
-									<a class="menu-link" href="index.html">
+								<li class="menu-item <?php echo $currentPageName === "index" ? "current" : ""; ?>">
+									<a class="menu-link" href="/">
 										<div>Acasa</div>
 									</a>
 								</li>
