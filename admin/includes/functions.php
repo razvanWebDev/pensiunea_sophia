@@ -416,4 +416,20 @@ function editProject($title, $description, $id) {
   }
 }
 
+function addGalleryImagesToDB($imageName){
+  global $connection;
+
+  $query = "INSERT INTO photo_gallery (image_name) VALUES (?);";
+  $stmt = mysqli_stmt_init($connection);
+
+  if(!mysqli_stmt_prepare($stmt, $query)){
+    header("Location: gallery.php?error=unknown");
+    exit();
+  }else{
+    mysqli_stmt_bind_param($stmt, "s", $imageName);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);  
+  }
+}
+
 ?>

@@ -3,7 +3,7 @@
   <!-- Brand Logo -->
   <a href="../" class="brand-link">
     <img src="dist/img/AdminLTELogo.png" alt="Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-    <span class="brand-text font-weight-light">EYKA SYSTEM</span>
+    <span class="brand-text font-weight-light">PENSIUNEA SOPHIA</span>
   </a>
 
   <!-- Sidebar -->
@@ -49,21 +49,15 @@
           <a href="#" class="nav-link sidebar-page-title">
             <i class="nav-icon fas fa-briefcase"></i>
             <p>
-              Proiecte
+              Gelarie Foto
               <i class="right fas fa-angle-left"></i>
             </p>
           </a>
           <ul class="nav nav-treeview">
             <li class="nav-item">
-              <a href="projects.php" class="nav-link">
+              <a href="gallery.php" class="nav-link">
                 <i class="far fa-circle nav-icon"></i>
-                <p>Vezi proiecte</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="projects.php?source=add_project" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Adauga un proiect</p>
+                <p>Vezi galerie</p>
               </a>
             </li>
           </ul>

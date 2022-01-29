@@ -1,5 +1,5 @@
 <?php ob_start(); ?>
-<?php include "../includes/db.php" ?>
+<?php include "../PHP/db.php" ?>
 <?php include "functions.php" ?>
 <?php session_start(); 
 if(!isset($_SESSION["username"])){

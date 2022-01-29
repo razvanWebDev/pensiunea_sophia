@@ -13,11 +13,11 @@ $website_url = "http://gdarcht.com";
   $server = 'localhost';
   $username = 'root';
   $password = '';
-  $dbname = 'geometrik';    
+  $dbname = 'pensiunea_sophia';    
 
-  //$connection = mysqli_connect($server, $username, $password, $dbname);
+  $connection = mysqli_connect($server, $username, $password, $dbname);
 
-// if (!$connection) {
-//   die("Failed to connect to MySQL: " . mysqli_connect_error()) ;
-// }
+if (!$connection) {
+  die("Failed to connect to MySQL: " . mysqli_connect_error()) ;
+}
 ?>

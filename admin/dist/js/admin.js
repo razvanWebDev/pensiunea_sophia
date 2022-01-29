@@ -83,33 +83,31 @@ Dropzone.options.dropzoneFrom = {
         var _this = this;
         _this.removeAllFiles();
       }
-      list_image(post_id.value);
+      list_image();
     });
   },
 };
 //display uploaded files
-function list_image(post_id) {
+function list_image() {
   $.ajax({
-    url: `upload_project_fotos.php?post_id=${post_id}`,
+    url: `upload_gallery_fotos.php`,
     success: function (data) {
       $("#preview").html(data);
     },
   });
 }
 //display existing images on page load
-if (typeof post_id !== "undefined" && post_id !== null) {
-  list_image(post_id.value);
-}
+list_image();
 
 //delete photo
 $(document).on("click", ".remove_image", function () {
   var id = $(this).attr("id");
   $.ajax({
-    url: `upload_project_fotos.php?post_id=${post_id.value}`,
+    url: `upload_gallery_fotos.php`,
     method: "POST",
     data: { id: id },
     success: function (data) {
-      list_image(post_id.value);
+      list_image();
     },
   });
 });

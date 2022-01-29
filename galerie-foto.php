@@ -17,25 +17,25 @@
 
 	</section><!-- #page-title end -->
 
-			<!-- Content
-		============================================= -->
-		<section id="content">
-			<div class="content-wrap">
-				<div class="container clearfix">
+	<!-- Content
+	============================================= -->
+	<section id="content">
+		<div class="content-wrap">
+			<div class="container clearfix">
 
-					<div class="masonry-thumbs grid-container grid-4" data-big="4" data-lightbox="gallery">
-						<a class="grid-item" href="images/portfolio/full/1.jpg" data-lightbox="gallery-item"><img src="images/portfolio/4/1.jpg" alt="Gallery Thumb 1"></a>
-						<a class="grid-item" href="images/portfolio/full/2.jpg" data-lightbox="gallery-item"><img src="images/portfolio/4/2.jpg" alt="Gallery Thumb 2"></a>
-						<a class="grid-item" href="images/portfolio/full/3.jpg" data-lightbox="gallery-item"><img src="images/portfolio/4/3.jpg" alt="Gallery Thumb 3"></a>
-						<a class="grid-item" href="images/portfolio/full/4.jpg" data-lightbox="gallery-item"><img src="images/portfolio/4/4.jpg" alt="Gallery Thumb 4"></a>
-						<a class="grid-item" href="images/portfolio/full/5.jpg" data-lightbox="gallery-item"><img src="images/portfolio/4/5.jpg" alt="Gallery Thumb 5"></a>
-						<a class="grid-item" href="images/portfolio/full/6.jpg" data-lightbox="gallery-item"><img src="images/portfolio/4/6.jpg" alt="Gallery Thumb 6"></a>
-						<a class="grid-item" href="images/portfolio/full/7.jpg" data-lightbox="gallery-item"><img src="images/portfolio/4/7.jpg" alt="Gallery Thumb 7"></a>
-						<a class="grid-item" href="images/portfolio/full/9.jpg" data-lightbox="gallery-item"><img src="images/portfolio/4/9.jpg" alt="Gallery Thumb 9"></a>
-						<a class="grid-item" href="images/portfolio/full/10.jpg" data-lightbox="gallery-item"><img src="images/portfolio/4/10.jpg" alt="Gallery Thumb 10"></a>
-					</div>
+				<div class="masonry-thumbs grid-container grid-4" data-big="4" data-lightbox="gallery">
+					<?php
+						$fotos_query = "SELECT * FROM  photo_gallery ORDER BY id DESC";
+						$fotos_result = mysqli_query($connection, $fotos_query);
+						while($row = mysqli_fetch_assoc($fotos_result)){
+							$image = (!empty($row['image_name']) ? $row['image_name'] : ""); 
+
+							echo '<a class="grid-item" href="images/photo_gallery/'.$image.'" data-lightbox="gallery-item"><img src="images/photo_gallery/'.$image.'" alt="Poza Galerie"></a>';
+						}
+					?>
 				</div>
 			</div>
-		</section><!-- #content end -->
+		</div>
+	</section><!-- #content end -->
 
 <?php include "PHP/footer.php"; ?>
