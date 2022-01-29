@@ -57,8 +57,8 @@
 										<div>Atractii Turistice</div>
 									</a>
 								</li>
-								<li class="menu-item">
-									<a class="menu-link" href="index.html">
+								<li class="menu-item <?php echo $currentPageName === "galerie-foto" ? "current" : ""; ?>">
+									<a class="menu-link" href="galerie-foto">
 										<div>Galerie Foto</div>
 									</a>
 								</li>
