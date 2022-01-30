@@ -65,6 +65,8 @@
 
 <!-- Footer Scripts
 ============================================= -->
+<script src="https://maps.google.com/maps/api/js?key=AIzaSyD9V2b0O442sSiXWpd4ZGHGCyQl_HyD7jA"></script>
+
 <script src="js/functions.js"></script>
 <script src="js/app.js"></script>
 

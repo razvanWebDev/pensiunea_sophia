@@ -8,7 +8,6 @@
 	<div class="bg-overlay z-1" style="background-color: rgba(0,0,0,0.5);"></div>
 		<div class="container clearfix z-2">
 			<h1>GALERIE FOTO</h1>
-			<span>A Short Page Title Tagline</span>
 			<ol class="breadcrumb">
 				<li class="breadcrumb-item"><a href="/">Acasa</a></li>
 				<li class="breadcrumb-item"><a href="galerie-foto">Galerie Foto</a></li>

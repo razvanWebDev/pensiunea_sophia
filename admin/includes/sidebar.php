@@ -47,9 +47,9 @@
         </li>
         <li class="nav-item sidebar-page-header">
           <a href="#" class="nav-link sidebar-page-title">
-            <i class="nav-icon fas fa-briefcase"></i>
+            <i class="nav-icon fas fa-image"></i>
             <p>
-              Gelarie Foto
+              Galerie Foto
               <i class="right fas fa-angle-left"></i>
             </p>
           </a>
@@ -58,6 +58,29 @@
               <a href="gallery.php" class="nav-link">
                 <i class="far fa-circle nav-icon"></i>
                 <p>Vezi galerie</p>
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item sidebar-page-header">
+          <a href="#" class="nav-link sidebar-page-title">
+            <i class="nav-icon fab fa-blogger"></i>
+            <p>
+              Blog
+              <i class="right fas fa-angle-left"></i>
+            </p>
+          </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a href="blog.php" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Vezi articole</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="blog.php?source=add_post" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Adauga un articol</p>
               </a>
             </li>
           </ul>
