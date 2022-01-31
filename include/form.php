@@ -27,7 +27,7 @@ require 'phpmailer/src/SMTP.php';
 $toemails = array();
 
 $toemails[] = array(
-				'email' => 'crsn_razvan@yahoo.com', // Your Email Address
+				'email' => 'crsn_razvan@yahoo.com, razvan.crisan@ctotech.io', // Your Email Address
 				'name' => '' // Your Name
 			);
 

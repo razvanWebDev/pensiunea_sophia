@@ -2,12 +2,12 @@
 //website url needed for forgot password
 $website_url = "http://gdarcht.com";
 
-// ONLINE =============
+// ONLINE (infinityfree)=============
 
-// $server = 'sql5c38c.carrierzone.com';
-// $username = 'gdarchtcom166742';
-// $password = 'Geo2022!';
-// $dbname = 'geometrik_gdarchtcom166742'; 
+// $server = 'sql207.epizy.com';
+// $username = 'epiz_30934235';
+// $password = 's9Rtt1hr8NJz';
+// $dbname = 'epiz_30934235_pensiunea_sophia'; 
 
 //LOCAL=================================
   $server = 'localhost';

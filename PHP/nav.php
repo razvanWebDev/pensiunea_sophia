@@ -47,13 +47,13 @@
 										<div>Acasa</div>
 									</a>
 								</li>
-								<li class="menu-item">
-									<a class="menu-link" href="index.html">
+								<li class="menu-item <?php echo $currentPageName === "despre-noi" ? "current" : ""; ?>">
+									<a class="menu-link" href="despre-noi">
 										<div>Despre Noi</div>
 									</a>
 								</li>
-								<li class="menu-item">
-									<a class="menu-link" href="index.html">
+								<li class="menu-item <?php echo $currentPageName === "atractii-turistice" ? "current" : ""; ?>">
+									<a class="menu-link" href="atractii-turistice">
 										<div>Atractii Turistice</div>
 									</a>
 								</li>
@@ -62,8 +62,8 @@
 										<div>Galerie Foto</div>
 									</a>
 								</li>
-								<li class="menu-item">
-									<a class="menu-link" href="index.html">
+								<li class="menu-item <?php echo $currentPageName === "blog" ? "current" : ""; ?>">
+									<a class="menu-link" href="blog">
 										<div>Blog</div>
 									</a>
 								</li>
