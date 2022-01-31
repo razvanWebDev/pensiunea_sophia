@@ -62,8 +62,9 @@
 								<div class="entry-meta">
 									<ul>
 										<li><i class="icon-calendar3"></i> 31.01.2022</li>
-										<li><a href="blog-single-small.html#comments"><i class="icon-comments"></i> 21
-												Comentarii</a></li>
+										<li><i class="icon-user"></i> admin</li>
+										<li><i class="icon-comments"></i> 21
+											comentarii</li>
 										<li><i class="icon-picture"></i></li>
 									</ul>
 								</div>
