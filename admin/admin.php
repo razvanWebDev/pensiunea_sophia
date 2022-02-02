@@ -19,19 +19,19 @@
             <div class="small-box bg-success">
               <div class="inner">
                 <?php
-                    $query = "SELECT * FROM projects";
+                    $query = "SELECT * FROM blog";
                     $select_users = mysqli_query($connection, $query);
                     $num_users = mysqli_num_rows($select_users);
                     ?>
                 <h3>
                   <?php echo $num_users ?>
                 </h3>
-                <p>Proiecte</p>
+                <p>Articole Blog</p>
               </div>
               <div class="icon">
                 <i class="fas fa-user"></i>
               </div>
-              <a href="projects.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="blog.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- small box -->

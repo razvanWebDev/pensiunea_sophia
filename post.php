@@ -25,106 +25,76 @@
 		<div class="container clearfix">
 
 			<div class="row gutter-40 col-mb-80">
-				<!-- Post Content
-						============================================= -->
+				<!-- Post Content============================================= -->
 				<div class="postcontent col-lg-9">
+					<?php
+					$link_to = "";
+					if(isset($_GET['article'])){
+						$link_to = $_GET['article'];
+					}
+					$query = "SELECT * FROM blog WHERE status='public' AND link_to='{$link_to}' ORDER BY id DESC LIMIT 1";
+					$select_posts = mysqli_query($connection, $query);
+			
+					while ($row = mysqli_fetch_assoc($select_posts)) {
+					  $id = $row['id'];
+					  $title = (!empty($row['title']) ? $row['title'] : "");
+					  $date = (!empty($row['date']) ? $row['date'] : "");
+					  $formated_date = date('d.m.Y',strtotime($date));
+					  $posted_by = (!empty($row['posted_by']) ? $row['posted_by'] : "");
+					  $description = (!empty($row['description']) ? $row['description'] : ""); 
+
+					?>
 
 					<div class="single-post mb-0">
 
-						<!-- Single Post
-	============================================= -->
+						<!-- Single Post============================================= -->
 						<div class="entry clearfix">
 
-							<!-- Entry Title
-		============================================= -->
+							<!-- Entry Title============================================= -->
 							<div class="entry-title">
-								<h2>This is a Standard post with a Preview Image</h2>
+								<h2><?php echo $title ?></h2>
 							</div><!-- .entry-title end -->
 
-							<!-- Entry Meta
-		============================================= -->
+							<!-- Entry Meta============================================= -->
 							<div class="entry-meta">
 								<ul>
-									<li><i class="icon-calendar3"></i> 10th July 2021</li>
-									<li><i class="icon-user"></i> admin</li>
+									<li><i class="icon-calendar3"></i> <?php echo $formated_date ?></li>
+									<li><i class="icon-user"></i> <?php echo $posted_by ?></li>
 									<li><i class="icon-comments"></i> 43 comentarii</li>
 									<li><i class="icon-camera-retro"></i></li>
 								</ul>
 							</div><!-- .entry-meta end -->
 
-							<!-- Entry Image
-		============================================= -->
-							<div class="entry-image">
-								<div class="fslider" data-thumbs="true" data-lightbox="gallery">
-									<div class="flexslider">
-										<div class="slider-wrap">
-											<div class="slide" data-thumb="images/blog/full/10.jpg"><a
-													href="images/blog/full/10.jpg" data-lightbox="gallery-item"><img
-														src="images/blog/standard/10.jpg"
-														alt="Standard Post with Gallery"></a></div>
-											<div class="slide" data-thumb="images/blog/full/10.jpg"><a
-													href="images/blog/full/20.jpg" data-lightbox="gallery-item"><img
-														src="images/blog/standard/20.jpg"
-														alt="Standard Post with Gallery"></a></div>
-											<div class="slide" data-thumb="images/blog/full/10.jpg"><a
-													href="images/blog/full/21.jpg" data-lightbox="gallery-item"><img
-														src="images/blog/standard/21.jpg"
-														alt="Standard Post with Gallery"></a></div>
+							<!-- Entry Image============================================= -->
+								<div class="entry-image">
+									<div class="fslider vh-20" data-arrows="false" data-lightbox="gallery">
+										<div class="flexslider ">
+											<div class="slider-wrap ">
+												<?php
+													//display images
+													$image_query = "SELECT * FROM blog_fotos WHERE post_id = {$id} ORDER BY id DESC";
+													$image_result = mysqli_query($connection, $image_query);
+													while($row = mysqli_fetch_assoc($image_result)){
+														$folder_name = (!empty($row['folder_name']) ? $row['folder_name'] : ""); 
+														$image = (!empty($row['image']) ? $row['image'] : ""); 
+												?>
+												<div class="slide blog-title-slide"><a
+														href="images/<?php echo $folder_name ?>/<?php echo $image ?>"
+														data-lightbox="gallery-item"><img
+															src="images/<?php echo $folder_name ?>/<?php echo $image ?>"
+															alt="blog image gallery" class="blog-image"></a>
+												</div>
+
+												<?php }?>
+											</div>
 										</div>
 									</div>
 								</div>
-							</div>
 
-							<!-- Entry Content
-		============================================= -->
+							<!-- Entry Content============================================= -->
 							<div class="entry-content mt-0">
+								<?php echo $description ?>
 
-								<p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio
-									sem nec elit. Cras mattis consectetur purus sit amet fermentum. Morbi leo risus,
-									porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna, vel
-									scelerisque nisl consectetur et.</p>
-
-								<p>Nullam id dolor id nibh ultricies vehicula ut id elit. <a href="#">Curabitur blandit
-										tempus porttitor</a>. Integer posuere erat a ante venenatis dapibus posuere
-									velit aliquet. Cras justo odio, dapibus ac facilisis in, egestas eget quam.
-									Vestibulum id ligula porta felis euismod semper. Donec id elit non mi porta gravida
-									at eget metus. Vestibulum id ligula porta felis euismod semper.</p>
-
-								<blockquote>
-									<p>Vestibulum id ligula porta felis euismod semper. Sed posuere consectetur est at
-										lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis
-										vestibulum. Duis mollis, est non commodo luctus, nisi erat porttitor ligula,
-										eget lacinia odio sem nec elit. Donec ullamcorper nulla non metus auctor
-										fringilla. Vestibulum id ligula porta felis euismod semper.</p>
-								</blockquote>
-
-								<p>Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Cras mattis
-									consectetur purus sit amet fermentum. Donec id elit non mi porta gravida at eget
-									metus.</p>
-
-								<p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Aenean lacinia bibendum
-									nulla sed consectetur. Cras justo odio, dapibus ac facilisis in, egestas eget quam.
-									<a href="#">Nullam quis risus eget urna</a> mollis ornare vel eu leo. Integer
-									posuere erat a ante venenatis dapibus posuere velit aliquet.
-								</p>
-
-								<pre>
-#header-inner {
-width: 940px;
-margin: 0 auto;
-padding-top: 40px;
-}</pre>
-
-								<p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio
-									sem nec elit. Cras mattis consectetur purus sit amet fermentum. Morbi leo risus,
-									porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna, vel
-									scelerisque nisl consectetur et.</p>
-
-								<p>Nullam id dolor id nibh ultricies vehicula ut id elit. Curabitur blandit tempus
-									porttitor. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Cras
-									justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta
-									felis euismod semper. Donec id elit non mi porta gravida at eget metus. Vestibulum
-									id ligula porta felis euismod semper.</p>
 								<!-- Post Single - Content End -->
 
 								<div class="clear"></div>
@@ -132,26 +102,42 @@ padding-top: 40px;
 							</div>
 						</div><!-- .entry end -->
 
-						<!-- Post Navigation
-	============================================= -->
+						<!-- Post Navigation============================================= -->
 						<div class="row justify-content-between col-mb-30 post-navigation">
+							<?php
+								$query = "SELECT * FROM blog WHERE date > '{$date}' ORDER BY date LIMIT 1";
+								$select_posts = mysqli_query($connection, $query);
+						
+								while ($row = mysqli_fetch_assoc($select_posts)) {
+									$link_to = (!empty($row['link_to']) ? $row['link_to'] : "");
+								
+							?>
 							<div class="col-12 col-md-auto text-center">
-								<a href="#">&lArr; Articolul anterior</a>
+								<a href="post.php?article=<?php echo $link_to ?>">&lArr; Articolul anterior</a>
 							</div>
 
+							<?php } ?>
+
+							<?php
+								$query = "SELECT * FROM blog WHERE date < '{$date}' ORDER BY date LIMIT 1";
+								$select_posts = mysqli_query($connection, $query);
+						
+								while ($row = mysqli_fetch_assoc($select_posts)) {
+									$link_to = (!empty($row['link_to']) ? $row['link_to'] : "");
+								
+							?>
 							<div class="col-12 col-md-auto text-center">
-								<a href="#">Articolul urmator &rArr;</a>
+								<a href="post.php?article=<?php echo $link_to ?>">Articolul urmator &rArr;</a>
 							</div>
+							<?php } ?>
 						</div><!-- .post-navigation end -->
 
-						<!-- Comments
-	============================================= -->
+						<!-- Comments============================================= -->
 						<div id="comments" class="clearfix">
 
 							<h3 id="comments-title"><span>3</span> Comentarii</h3>
 
-							<!-- Comments List
-		============================================= -->
+							<!-- Comments List============================================= -->
 							<ol class="commentlist clearfix">
 
 								<li class="comment even thread-even depth-1" id="li-comment-1">
@@ -179,8 +165,7 @@ padding-top: 40px;
 
 							<div class="clear"></div>
 
-							<!-- Comment Form
-		============================================= -->
+							<!-- Comment Form============================================= -->
 							<div id="respond">
 
 								<h3>Lasa un <span>comentariu</span></h3>
@@ -217,12 +202,13 @@ padding-top: 40px;
 						</div><!-- #comments end -->
 
 					</div>
+					<!-- end of while ($row = mysqli_fetch_assoc($select_posts)) -->
+					<?php } ?>
 
 				</div><!-- .postcontent end -->
 
 
-				<!-- Sidebar
-						============================================= -->
+				<!-- Sidebar============================================= -->
 				<div class="sidebar col-lg-3">
 					<div class="sidebar-widgets-wrap">
 
@@ -231,7 +217,7 @@ padding-top: 40px;
 							<h4>Galerie Foto</h4>
 							<div class="masonry-thumbs grid-container grid-4" data-lightbox="gallery">
 								<?php
-							$fotos_query = "SELECT * FROM  photo_gallery ORDER BY id DESC LIMIT 20";
+							$fotos_query = "SELECT * FROM  photo_gallery ORDER BY id DESC LIMIT 32";
 							$fotos_result = mysqli_query($connection, $fotos_query);
 							while($row = mysqli_fetch_assoc($fotos_result)){
 								$image = (!empty($row['image_name']) ? $row['image_name'] : ""); 
@@ -251,71 +237,46 @@ padding-top: 40px;
 							<h4>Ultimele Articole</h4>
 							<div class=" clearfix">
 								<div class="posts-sm row col-mb-30" id="popular-post-list-sidebar">
-									<div class="entry col-12">
-										<div class="grid-inner row g-0">
-											<div class="col-auto">
-												<div class="entry-image">
-													<a href="#"><img class="rounded-circle"
-															src="images/magazine/small/3.jpg" alt="Image"></a>
+									<?php
+									$query = "SELECT * FROM blog WHERE status='public' ORDER BY id DESC LIMIT 8";
+									$select_posts = mysqli_query($connection, $query);
+							
+									while ($row = mysqli_fetch_assoc($select_posts)) {
+									  $id = $row['id'];
+									  $title = (!empty($row['title']) ? $row['title'] : "");
+									  $link_to = (!empty($row['link_to']) ? $row['link_to'] : "");
+									?>
+										<div class="entry col-12">
+											<div class="grid-inner row g-0">
+												<div class="col-auto">
+												<?php
+													//display last image
+													$image_query = "SELECT * FROM blog_fotos WHERE post_id = {$id} ORDER BY id DESC LIMIT 1";
+													$image_result = mysqli_query($connection, $image_query);
+													while($row = mysqli_fetch_assoc($image_result)){
+														$folder_name = (!empty($row['folder_name']) ? $row['folder_name'] : ""); 
+														$image = (!empty($row['image']) ? $row['image'] : ""); 
+												?>
+													<div class="entry-image">
+														<a href="post.php?article=<?php echo $link_to ?>"><img class="rounded-circle sidebar-blog-image"
+																src="images/<?php echo $folder_name ?>/<?php echo $image ?>" alt="Image"></a>
+													</div>
+												<?php } ?>
 												</div>
-											</div>
-											<div class="col ps-3">
-												<div class="entry-title">
-													<h4><a href="#">Lorem ipsum dolor sit amet, consectetur</a>
-													</h4>
-												</div>
-												<div class="entry-meta">
-													<ul>
-														<li><i class="icon-comments-alt"></i> 35 Comentarii</li>
-													</ul>
-												</div>
-											</div>
-										</div>
-									</div>
-
-									<div class="entry col-12">
-										<div class="grid-inner row g-0">
-											<div class="col-auto">
-												<div class="entry-image">
-													<a href="#"><img class="rounded-circle"
-															src="images/magazine/small/2.jpg" alt="Image"></a>
-												</div>
-											</div>
-											<div class="col ps-3">
-												<div class="entry-title">
-													<h4><a href="#">Elit Assumenda vel amet dolorum quasi</a>
-													</h4>
-												</div>
-												<div class="entry-meta">
-													<ul>
-														<li><i class="icon-comments-alt"></i> 24 Comentarii</li>
-													</ul>
+												<div class="col ps-3">
+													<div class="entry-title">
+														<h4><a href="post.php?article=<?php echo $link_to ?>"><?php echo $title ?></a>
+														</h4>
+													</div>
+													<div class="entry-meta">
+														<ul>
+															<li><i class="icon-comments-alt"></i> 35 Comentarii</li>
+														</ul>
+													</div>
 												</div>
 											</div>
 										</div>
-									</div>
-
-									<div class="entry col-12">
-										<div class="grid-inner row g-0">
-											<div class="col-auto">
-												<div class="entry-image">
-													<a href="#"><img class="rounded-circle"
-															src="images/magazine/small/1.jpg" alt="Image"></a>
-												</div>
-											</div>
-											<div class="col ps-3">
-												<div class="entry-title">
-													<h4><a href="#">Debitis nihil placeat, illum est nisi</a>
-													</h4>
-												</div>
-												<div class="entry-meta">
-													<ul>
-														<li><i class="icon-comments-alt"></i> 19 Comentarii</li>
-													</ul>
-												</div>
-											</div>
-										</div>
-									</div>
+									<?php } ?>
 								</div>
 							</div>
 

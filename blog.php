@@ -32,63 +32,131 @@
 					<!-- Posts
 							============================================= -->
 					<div id="posts" class="row grid-container gutter-30">
+						<?php
+						//pagination
+						$rowCounter_per_page = 0;
+						//the number of posts per page
+						$articles_per_page = 6;
+					
+						if(isset($_GET['page'])){
+							$page = $_GET['page'];
+						}else{
+							$page = 1;
+						}
+				
+						if($page == "" || $page == 1){
+							$page_1 = 0;
+						}else{
+							$page_1 = ($page * $articles_per_page) - $articles_per_page;
+						}
+				
+						$post_query_count = "SELECT * FROM blog WHERE status='public'";
+						$select_post_query_count = mysqli_query($connection, $post_query_count);
+						$count = mysqli_num_rows($select_post_query_count);
+						$count = ceil($count / $articles_per_page); 
+				
+						$query = "SELECT * FROM blog WHERE status='public' ORDER BY date DESC LIMIT $page_1, $articles_per_page";
+						$select_posts = mysqli_query($connection, $query);
+				
+						while ($row = mysqli_fetch_assoc($select_posts)) {
+						  $rowCounter_per_page++;
+						  $totalRowCounter = $rowCounter_per_page + (($page-1) * $articles_per_page);
+						  
+						  $id = $row['id'];
+						  $title = (!empty($row['title']) ? $row['title'] : "");
+						  $date = (!empty($row['date']) ? $row['date'] : "");
+						  $formated_date = date('d.m.Y',strtotime($date));
+						  $posted_by = (!empty($row['posted_by']) ? $row['posted_by'] : "");
+						  $link_to = (!empty($row['link_to']) ? $row['link_to'] : "");
+						  $description = (!empty($row['description']) ? $row['description'] : ""); 
+						  //get short text for expandable table
+						  // $short_text = strip_tags($description);
+						  $short_text = $description;
+						  if (strlen($short_text) > 400) {
+				
+							// truncate string
+							$stringCut = substr($short_text, 0, 400);
+							$endPoint = strrpos($stringCut, ' ');
+						
+							//if the string doesn't contain any space then it will cut without word basis.
+							$short_text = $endPoint? substr($stringCut, 0, $endPoint) : substr($stringCut, 0);
+							$short_text .= '...';
+						  }
+				
+						  $folder_name = $image = "";
+
+						?>
 
 						<div class="entry col-12">
 							<div class="grid-inner">
 								<div class="entry-image">
-									<div class="fslider" data-arrows="false" data-lightbox="gallery">
-										<div class="flexslider">
-											<div class="slider-wrap">
-												<div class="slide"><a href="images/blog/full/10.jpg"
+									<div class="fslider vh-20" data-arrows="false" data-lightbox="gallery">
+										<div class="flexslider ">
+											<div class="slider-wrap ">
+												<?php
+													//display images
+													$image_query = "SELECT * FROM blog_fotos WHERE post_id = {$id} ORDER BY id DESC";
+													$image_result = mysqli_query($connection, $image_query);
+													while($row = mysqli_fetch_assoc($image_result)){
+														$folder_name = (!empty($row['folder_name']) ? $row['folder_name'] : ""); 
+														$image = (!empty($row['image']) ? $row['image'] : ""); 
+												?>
+												<div class="slide blog-title-slide"><a
+														href="images/<?php echo $folder_name ?>/<?php echo $image ?>"
 														data-lightbox="gallery-item"><img
-															src="images/blog/standard/10.jpg"
-															alt="Standard Post with Gallery"></a></div>
-												<div class="slide"><a href="images/blog/full/20.jpg"
-														data-lightbox="gallery-item"><img
-															src="images/blog/standard/20.jpg"
-															alt="Standard Post with Gallery"></a></div>
-												<div class="slide"><a href="images/blog/full/21.jpg"
-														data-lightbox="gallery-item"><img
-															src="images/blog/standard/21.jpg"
-															alt="Standard Post with Gallery"></a></div>
+															src="images/<?php echo $folder_name ?>/<?php echo $image ?>"
+															alt="blog image gallery" class="blog-image"></a>
+												</div>
+
+												<?php }?>
 											</div>
 										</div>
 									</div>
 								</div>
+
 								<div class="entry-title">
-									<h2><a href="blog-single-small.html">This is a Standard post with a Slider
-											Gallery</a></h2>
+									<h2><a href="post.php?article=<?php echo $link_to ?>">
+											<?php echo $title ?>
+										</a></h2>
 								</div>
 								<div class="entry-meta">
 									<ul>
-										<li><i class="icon-calendar3"></i> 31.01.2022</li>
-										<li><i class="icon-user"></i> admin</li>
+										<li><i class="icon-calendar3"></i>
+											<?php echo $formated_date ?>
+										</li>
+										<li><i class="icon-user"></i>
+											<?php echo $posted_by ?>
+										</li>
 										<li><i class="icon-comments"></i> 21
 											comentarii</li>
 										<li><i class="icon-picture"></i></li>
 									</ul>
 								</div>
 								<div class="entry-content">
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione, voluptatem,
-										dolorem animi nisi autem blanditiis enim culpa reiciendis et explicabo tenetur
-										voluptate rerum molestiae eaque possimus exercitationem eligendi fuga. Maiores,
-										sunt eveniet doloremque porro hic exercitationem distinctio sequi adipisci.
-										Nulla, fuga perferendis voluptatum beatae voluptate architecto laboriosam
-										provident deserunt. Saepe!</p>
-									<a href="blog-single-small.html" class="more-link">Read More</a>
+									<?php echo $short_text ?><br><br>
+									<a href="post.php?article=<?php echo $link_to ?>" class="more-link">Deschide</a>
 								</div>
 							</div>
 						</div>
+						<?php }?>
 
 					</div><!-- #posts end -->
 
-					<!-- Pager
-							============================================= -->
-					<div class="d-flex justify-content-between mt-5">
-						<a href="#" class="btn btn-outline-secondary">&larr; Older</a>
-						<a href="#" class="btn btn-outline-dark">Newer &rarr;</a>
-					</div>
-					<!-- .pager end -->
+					<!-- Pagination
+					============================================= -->
+					<ul class="pagination mt-5 pagination-circle justify-content-center">
+						<?php
+							if($count > 1){
+								for($i = 1; $i <= $count; $i++){
+									if($i == $page){
+										echo "<li class='page-item active'><a class='page-link' href='blog.php?page={$i}'>$i</a></li>";
+									}else{
+										echo "<li class='page-item'><a class='page-link' href='blog.php?page={$i}'>$i</a></li>";
+									}
+								}
+							}
+						?>
+					</ul>
 
 				</div><!-- .postcontent end -->
 
@@ -99,10 +167,10 @@
 
 						<div class="widget clearfix">
 
-							<h4>Galerie Foto</h4>
+							<a href="galerie-foto"><h4>Galerie Foto</h4></a>
 							<div class="masonry-thumbs grid-container grid-4" data-lightbox="gallery">
 								<?php
-							$fotos_query = "SELECT * FROM  photo_gallery ORDER BY id DESC LIMIT 20";
+							$fotos_query = "SELECT * FROM  photo_gallery ORDER BY id DESC LIMIT 32";
 							$fotos_result = mysqli_query($connection, $fotos_query);
 							while($row = mysqli_fetch_assoc($fotos_result)){
 								$image = (!empty($row['image_name']) ? $row['image_name'] : ""); 
@@ -122,71 +190,46 @@
 							<h4>Ultimele Articole</h4>
 							<div class=" clearfix">
 								<div class="posts-sm row col-mb-30" id="popular-post-list-sidebar">
-									<div class="entry col-12">
-										<div class="grid-inner row g-0">
-											<div class="col-auto">
-												<div class="entry-image">
-													<a href="#"><img class="rounded-circle"
-															src="images/magazine/small/3.jpg" alt="Image"></a>
+									<?php
+									$query = "SELECT * FROM blog WHERE status='public' ORDER BY id DESC LIMIT 8";
+									$select_posts = mysqli_query($connection, $query);
+							
+									while ($row = mysqli_fetch_assoc($select_posts)) {
+									  $id = $row['id'];
+									  $title = (!empty($row['title']) ? $row['title'] : "");
+									  $link_to = (!empty($row['link_to']) ? $row['link_to'] : "");
+									?>
+										<div class="entry col-12">
+											<div class="grid-inner row g-0">
+												<div class="col-auto">
+												<?php
+													//display last image
+													$image_query = "SELECT * FROM blog_fotos WHERE post_id = {$id} ORDER BY id DESC LIMIT 1";
+													$image_result = mysqli_query($connection, $image_query);
+													while($row = mysqli_fetch_assoc($image_result)){
+														$folder_name = (!empty($row['folder_name']) ? $row['folder_name'] : ""); 
+														$image = (!empty($row['image']) ? $row['image'] : ""); 
+												?>
+													<div class="entry-image">
+														<a href="post.php?article=<?php echo $link_to ?>"><img class="rounded-circle sidebar-blog-image"
+																src="images/<?php echo $folder_name ?>/<?php echo $image ?>" alt="Image"></a>
+													</div>
+												<?php } ?>
 												</div>
-											</div>
-											<div class="col ps-3">
-												<div class="entry-title">
-													<h4><a href="#">Lorem ipsum dolor sit amet, consectetur</a>
-													</h4>
-												</div>
-												<div class="entry-meta">
-													<ul>
-														<li><i class="icon-comments-alt"></i> 35 Comentarii</li>
-													</ul>
-												</div>
-											</div>
-										</div>
-									</div>
-
-									<div class="entry col-12">
-										<div class="grid-inner row g-0">
-											<div class="col-auto">
-												<div class="entry-image">
-													<a href="#"><img class="rounded-circle"
-															src="images/magazine/small/2.jpg" alt="Image"></a>
-												</div>
-											</div>
-											<div class="col ps-3">
-												<div class="entry-title">
-													<h4><a href="#">Elit Assumenda vel amet dolorum quasi</a>
-													</h4>
-												</div>
-												<div class="entry-meta">
-													<ul>
-														<li><i class="icon-comments-alt"></i> 24 Comentarii</li>
-													</ul>
+												<div class="col ps-3">
+													<div class="entry-title">
+														<h4><a href="post.php?article=<?php echo $link_to ?>"><?php echo $title ?></a>
+														</h4>
+													</div>
+													<div class="entry-meta">
+														<ul>
+															<li><i class="icon-comments-alt"></i> 35 Comentarii</li>
+														</ul>
+													</div>
 												</div>
 											</div>
 										</div>
-									</div>
-
-									<div class="entry col-12">
-										<div class="grid-inner row g-0">
-											<div class="col-auto">
-												<div class="entry-image">
-													<a href="#"><img class="rounded-circle"
-															src="images/magazine/small/1.jpg" alt="Image"></a>
-												</div>
-											</div>
-											<div class="col ps-3">
-												<div class="entry-title">
-													<h4><a href="#">Debitis nihil placeat, illum est nisi</a>
-													</h4>
-												</div>
-												<div class="entry-meta">
-													<ul>
-														<li><i class="icon-comments-alt"></i> 19 Comentarii</li>
-													</ul>
-												</div>
-											</div>
-										</div>
-									</div>
+									<?php } ?>
 								</div>
 							</div>
 

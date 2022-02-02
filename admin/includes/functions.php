@@ -363,54 +363,54 @@ function deleteFolder($dir) {
   }
 }
 
-function addProjectImagesToDB($project_id, $folder_name, $imageName){
+function addBlogImagesToDB($post_id, $folder_name, $imageName){
   global $connection;
 
-  $query = "INSERT INTO projects_fotos (project_id, folder_name, image) VALUES (?, ?, ?);";
+  $query = "INSERT INTO blog_fotos (post_id, folder_name, image) VALUES (?, ?, ?);";
   $stmt = mysqli_stmt_init($connection);
 
   if(!mysqli_stmt_prepare($stmt, $query)){
-    header("Location: projects.php?source=project_fotos");
+    header("Location: blog.php?source=blog_fotos");
     exit();
   }else{
-    mysqli_stmt_bind_param($stmt, "sss", $project_id, $folder_name, $imageName);
+    mysqli_stmt_bind_param($stmt, "sss", $post_id, $folder_name, $imageName);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);  
   }
 }
 
-function  createProject($title, $description) {
+function  createPost($title, $date, $posted_by, $description, $status) {
   global $connection;
 
-  $query = "INSERT INTO projects (title, link_to, description) VALUES (?, ?, ?);";
+  $query = "INSERT INTO blog (title, date, posted_by, link_to, description, status) VALUES (?, ?, ?, ?, ?, ?);";
   $stmt = mysqli_stmt_init($connection);
 
   if(!mysqli_stmt_prepare($stmt, $query)){
-    header("Location: projects.php?source=add_project");
+    header("Location: blog.php?source=add_post");
     exit();
   }else{
     $link_to = strtolower(preg_replace("/[^a-zA-Z0-9]+/", "-", $title));
-    mysqli_stmt_bind_param($stmt, "sss", $title, $link_to, $description);
+    mysqli_stmt_bind_param($stmt, "ssssss", $title, $date, $posted_by, $link_to, $description, $status);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt); 
-    //get the project id 
+    //get the post id 
     $last_id =  mysqli_insert_id($connection);
     return $last_id;
   }
 }
 
-function editProject($title, $description, $id) {
+function editPost($title, $date, $description, $id) {
   global $connection;
 
-  $query = "UPDATE projects SET title = ?, link_to = ?, description = ? WHERE id = '{$id}'";
+  $query = "UPDATE blog SET title = ?, date = ?, link_to = ?, description = ? WHERE id = '{$id}'";
   $stmt = mysqli_stmt_init($connection);
 
   if(!mysqli_stmt_prepare($stmt, $query)){
-    header("Location: projects.php?source=edit_project&id={$id}");
+    header("Location: blog.php?source=edit_post&id={$id}");
     exit();
   }else{
     $link_to = strtolower(preg_replace("/[^a-zA-Z0-9]+/", "-", $title));
-    mysqli_stmt_bind_param($stmt, "sss", $title, $link_to, $description);
+    mysqli_stmt_bind_param($stmt, "ssss", $title, $date, $link_to, $description);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);  
   }

@@ -37,13 +37,12 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(12em, 1fr));
   grid-auto-rows: 10em;
-
   justify-content: center;
   align-content: center;
   align-items: center;
-  grid-gap: 2em;
+  grid-gap: 4em 2em;
   width: 100%;
-  margin: 2em 0;
+  margin: 2em 0 4em;
 }
 .uploaded-image-container {
   width: 100%;
@@ -81,4 +80,18 @@
 
 .edit-delete-btn {
   min-width: 9em;
+}
+
+.post-status-select {
+  background-color: #f0ad4e;
+  color: white;
+  padding: 0.5em 0.2em;
+  border: none;
+}
+
+.post-status-select option {
+  background-color: white;
+  color: #222;
+  border: none;
+  outline: none;
 }

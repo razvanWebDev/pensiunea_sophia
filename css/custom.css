@@ -17,3 +17,29 @@
 #facilities-section {
   background-color: #f5f5f5;
 }
+.blog-image {
+  height: 30em !important;
+  object-fit: cover;
+}
+.sidebar-blog-image {
+  width: 4em !important;
+  height: 4em !important;
+  object-fit: cover !important;
+}
+
+@media (max-width: 1200px) {
+  .blog-image {
+    height: 25em !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .blog-image {
+    height: 20em !important;
+  }
+}
+@media (max-width: 576px) {
+  .blog-image {
+    height: 15em !important;
+  }
+}

@@ -63,11 +63,25 @@ window.onload = () => {
     });
   }
 
+  // Blog================
+  const blogPostStatusSelect = document.querySelectorAll(".post-status-select");
+
+  const setBlogStatusColor = () => {
+    for (statusSelect of blogPostStatusSelect) {
+      if (statusSelect.value == "public") {
+        statusSelect.style.backgroundColor = "#28a745";
+      }
+    }
+  };
+
+  if (elementExists(blogPostStatusSelect)) {
+    setBlogStatusColor();
+  }
   // end of window.onload
 };
 
 //Dropzone file uploads (must pe outside window.onload area!!! )==============
-//upload files
+//upload gallery photos
 Dropzone.options.dropzoneFrom = {
   maxFilesize: 4,
   resizeWidth: 1920,
@@ -112,3 +126,49 @@ $(document).on("click", ".remove_image", function () {
   });
 });
 // #################################################
+//upload blog post photos
+Dropzone.options.dropzoneBlog = {
+  maxFilesize: 4,
+  resizeWidth: 1920,
+  resizeQuality: 0.8,
+  acceptedFiles: ".png,.jpg,.gif,.bmp,.jpeg",
+  init: function () {
+    myDropzone = this;
+    this.on("complete", function () {
+      if (
+        this.getQueuedFiles().length == 0 &&
+        this.getUploadingFiles().length == 0
+      ) {
+        var _this = this;
+        _this.removeAllFiles();
+      }
+      list_blog_image(post_id.value);
+    });
+  },
+};
+//display uploaded files
+function list_blog_image(post_id) {
+  $.ajax({
+    url: `upload_post_fotos.php?post_id=${post_id}`,
+    success: function (data) {
+      $("#preview").html(data);
+    },
+  });
+}
+//display existing images on page load
+if (typeof post_id !== "undefined" && post_id !== null) {
+  list_blog_image(post_id.value);
+}
+
+//delete photo
+$(document).on("click", ".remove_blog_image", function () {
+  var id = $(this).attr("id");
+  $.ajax({
+    url: `upload_post_fotos.php?post_id=${post_id.value}`,
+    method: "POST",
+    data: { id: id },
+    success: function (data) {
+      list_blog_image(post_id.value);
+    },
+  });
+});
