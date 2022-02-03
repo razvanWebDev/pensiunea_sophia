@@ -72,7 +72,6 @@ function loginUser($username, $password){
   $userExists = userExists($username, $username);
 
   if($userExists === false) {
-    echo "Error";
     header("Location: ../index.php");
     exit();
   }
@@ -85,14 +84,10 @@ function loginUser($username, $password){
     header("Location: ../index.php");
     exit();
   }else if($check_passwords === true){
-    header("Location: ../admin.php");
-    echo "Logged in";
-    
     $_SESSION["userId"] = $userExists["id"];
     $_SESSION["username"] = $userExists["username"];
     $_SESSION["user_image"] = $userExists["user_image"];
-
-  
+    header("Location: ../admin.php");
     exit();
   }
 }

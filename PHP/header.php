@@ -25,6 +25,8 @@
 
 	<link rel="stylesheet" href="css/custom.css" type="text/css" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://www.google.com/recaptcha/api.js?render=<?php echo $site_key ?>"></script>
+
 
 	<!-- Document Title
 	============================================= -->

@@ -62,7 +62,7 @@
 										<div>Galerie Foto</div>
 									</a>
 								</li>
-								<li class="menu-item <?php echo $currentPageName === "blog" ? "current" : ""; ?>">
+								<li class="menu-item <?php echo ($currentPageName === "blog" || $currentPageName === "post") ? "current" : ""; ?>">
 									<a class="menu-link" href="blog">
 										<div>Blog</div>
 									</a>

@@ -1,6 +1,21 @@
 <?php include "PHP/header.php"; ?>
 <?php include "PHP/nav.php"; ?>
 
+<!-- check for comment post errors -->
+<?php
+    $message = "";
+    $display_message = "none";
+    if(isset($_GET['error']) == "captcha_failed"){
+        $display_message = "block";
+		if($_GET['error'] == "unknown"){
+			$message = "Eroare captcha. Formularul nu a fost trimis!";
+		}elseif($_GET['error'] == "captcha_failed"){
+			$message = "Eroare captcha. Formularul nu a fost trimis!";
+		}
+    }
+
+?>
+
 <!-- Page Title
 	============================================= -->
 <section id="page-title" class="page-title-parallax page-title-dark"
@@ -28,7 +43,7 @@
 				<!-- Post Content============================================= -->
 				<div class="postcontent col-lg-9">
 					<?php
-					$link_to = "";
+					$link_to = $id = "";
 					if(isset($_GET['article'])){
 						$link_to = $_GET['article'];
 					}
@@ -52,25 +67,39 @@
 
 							<!-- Entry Title============================================= -->
 							<div class="entry-title">
-								<h2><?php echo $title ?></h2>
+								<h2>
+									<?php echo $title ?>
+								</h2>
 							</div><!-- .entry-title end -->
 
 							<!-- Entry Meta============================================= -->
 							<div class="entry-meta">
 								<ul>
-									<li><i class="icon-calendar3"></i> <?php echo $formated_date ?></li>
-									<li><i class="icon-user"></i> <?php echo $posted_by ?></li>
-									<li><i class="icon-comments"></i> 43 comentarii</li>
+									<li><i class="icon-calendar3"></i>
+										<?php echo $formated_date ?>
+									</li>
+									<li><i class="icon-user"></i>
+										<?php echo $posted_by ?>
+									</li>
+									<?php
+										$query = "SELECT * FROM blog_comments WHERE post_id={$id}";
+										$select_comments = mysqli_query($connection, $query);
+										$num_comments = mysqli_num_rows($select_comments);
+										$comments = ($num_comments === 1 ? "comentariu" : "comentarii")
+									?>
+									<li><i class="icon-comments"></i>
+										<?php echo $num_comments." ".$comments ?>
+									</li>
 									<li><i class="icon-camera-retro"></i></li>
 								</ul>
 							</div><!-- .entry-meta end -->
 
 							<!-- Entry Image============================================= -->
-								<div class="entry-image">
-									<div class="fslider vh-20" data-arrows="false" data-lightbox="gallery">
-										<div class="flexslider ">
-											<div class="slider-wrap ">
-												<?php
+							<div class="entry-image">
+								<div class="fslider vh-20" data-arrows="false" data-lightbox="gallery">
+									<div class="flexslider ">
+										<div class="slider-wrap ">
+											<?php
 													//display images
 													$image_query = "SELECT * FROM blog_fotos WHERE post_id = {$id} ORDER BY id DESC";
 													$image_result = mysqli_query($connection, $image_query);
@@ -78,18 +107,18 @@
 														$folder_name = (!empty($row['folder_name']) ? $row['folder_name'] : ""); 
 														$image = (!empty($row['image']) ? $row['image'] : ""); 
 												?>
-												<div class="slide blog-title-slide"><a
-														href="images/<?php echo $folder_name ?>/<?php echo $image ?>"
-														data-lightbox="gallery-item"><img
-															src="images/<?php echo $folder_name ?>/<?php echo $image ?>"
-															alt="blog image gallery" class="blog-image"></a>
-												</div>
-
-												<?php }?>
+											<div class="slide blog-title-slide"><a
+													href="images/<?php echo $folder_name ?>/<?php echo $image ?>"
+													data-lightbox="gallery-item"><img
+														src="images/<?php echo $folder_name ?>/<?php echo $image ?>"
+														alt="blog image gallery" class="blog-image"></a>
 											</div>
+
+											<?php }?>
 										</div>
 									</div>
 								</div>
+							</div>
 
 							<!-- Entry Content============================================= -->
 							<div class="entry-content mt-0">
@@ -135,31 +164,39 @@
 						<!-- Comments============================================= -->
 						<div id="comments" class="clearfix">
 
-							<h3 id="comments-title"><span>3</span> Comentarii</h3>
+							<h3 id="comments-title"><span>
+									<?php echo $num_comments ?>
+								</span>
+								<?php echo $comments ?>
+							</h3>
 
 							<!-- Comments List============================================= -->
 							<ol class="commentlist clearfix">
+								<?php
+								while ($row = mysqli_fetch_assoc($select_comments)) {
+									$name = (!empty($row['name']) ? $row['name'] : "");
+									$timestamp = (!empty($row['timestamp']) ? $row['timestamp'] : "");
+									$comment = (!empty($row['comment']) ? $row['comment'] : "");
+
+							?>
 
 								<li class="comment even thread-even depth-1" id="li-comment-1">
-
-									<div id="comment-1" class="comment-wrap clearfix">
-
+									<div class="comment-wrap clearfix">
 										<div class="comment-content clearfix">
+											<div class="comment-author">
+												<?php echo $name ?><span>
+													<?php echo $timestamp ?>
+												</span>
+											</div>
 
-											<div class="comment-author">John Doe<span><a href="#"
-														title="Permalink to this comment">April 24, 2012 at 10:46
-														am</a></span></div>
-
-											<p>Donec sed odio dui. Nulla vitae elit libero, a pharetra augue. Nullam id
-												dolor id nibh ultricies vehicula ut id elit. Integer posuere erat a ante
-												venenatis dapibus posuere velit aliquet.</p>
+											<p>
+												<?php echo $comment ?>
+											</p>
 										</div>
-
 										<div class="clear"></div>
-
 									</div>
-
 								</li>
+								<?php } ?>
 
 							</ol><!-- .commentlist end -->
 
@@ -170,25 +207,32 @@
 
 								<h3>Lasa un <span>comentariu</span></h3>
 
-								<form class="row" action="#" method="post" id="commentform">
+								<form class="row" action="PHP/blog_comments.php" method="post" id="commentform">
+									<p class="text-danger captcha-failed-p"
+										style="display: <?php echo $display_message ?>">
+										<?php echo $message ?>
+									</p>
+									<!-- input needed for reCaptcha -->
+									<input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response">
+									<input type="hidden" name="post_id" value="<?php echo $id ?>">
 									<div class="col-md-6 form-group">
-										<label for="author">Nume</label>
-										<input type="text" name="author" id="author" value="" size="22" tabindex="1"
-											class="sm-form-control" />
+										<label for="name">Nume *</label>
+										<input type="text" name="name" value="" size="22" tabindex="1"
+											class="sm-form-control" required />
 									</div>
 
 									<div class="col-md-6 form-group">
-										<label for="email">Email</label>
+										<label for="email">Email *</label>
 										<input type="text" name="email" id="email" value="" size="22" tabindex="2"
-											class="sm-form-control" />
+											class="sm-form-control" required />
 									</div>
 
 									<div class="w-100"></div>
 
 									<div class="col-12 form-group">
-										<label for="comment">Comentariu</label>
-										<textarea name="comment" cols="58" rows="7" tabindex="4"
-											class="sm-form-control"></textarea>
+										<label for="comment">Comentariu *</label>
+										<textarea name="comment" cols="58" rows="7" tabindex="4" class="sm-form-control"
+											required></textarea>
 									</div>
 
 									<div class="col-12 form-group">
@@ -209,81 +253,7 @@
 
 
 				<!-- Sidebar============================================= -->
-				<div class="sidebar col-lg-3">
-					<div class="sidebar-widgets-wrap">
-
-						<div class="widget clearfix">
-
-							<h4>Galerie Foto</h4>
-							<div class="masonry-thumbs grid-container grid-4" data-lightbox="gallery">
-								<?php
-							$fotos_query = "SELECT * FROM  photo_gallery ORDER BY id DESC LIMIT 32";
-							$fotos_result = mysqli_query($connection, $fotos_query);
-							while($row = mysqli_fetch_assoc($fotos_result)){
-								$image = (!empty($row['image_name']) ? $row['image_name'] : ""); 
-
-								echo '<a class="grid-item" href="images/photo_gallery/'.$image.'" data-lightbox="gallery-item"><img src="images/photo_gallery/'.$image.'" alt="Poza Galerie"></a>';
-							}
-							?>
-							</div>
-
-						</div>
-
-					</div>
-
-					<div class="widget clearfix">
-
-						<div class=" mb-0 clearfix">
-							<h4>Ultimele Articole</h4>
-							<div class=" clearfix">
-								<div class="posts-sm row col-mb-30" id="popular-post-list-sidebar">
-									<?php
-									$query = "SELECT * FROM blog WHERE status='public' ORDER BY id DESC LIMIT 8";
-									$select_posts = mysqli_query($connection, $query);
-							
-									while ($row = mysqli_fetch_assoc($select_posts)) {
-									  $id = $row['id'];
-									  $title = (!empty($row['title']) ? $row['title'] : "");
-									  $link_to = (!empty($row['link_to']) ? $row['link_to'] : "");
-									?>
-										<div class="entry col-12">
-											<div class="grid-inner row g-0">
-												<div class="col-auto">
-												<?php
-													//display last image
-													$image_query = "SELECT * FROM blog_fotos WHERE post_id = {$id} ORDER BY id DESC LIMIT 1";
-													$image_result = mysqli_query($connection, $image_query);
-													while($row = mysqli_fetch_assoc($image_result)){
-														$folder_name = (!empty($row['folder_name']) ? $row['folder_name'] : ""); 
-														$image = (!empty($row['image']) ? $row['image'] : ""); 
-												?>
-													<div class="entry-image">
-														<a href="post.php?article=<?php echo $link_to ?>"><img class="rounded-circle sidebar-blog-image"
-																src="images/<?php echo $folder_name ?>/<?php echo $image ?>" alt="Image"></a>
-													</div>
-												<?php } ?>
-												</div>
-												<div class="col ps-3">
-													<div class="entry-title">
-														<h4><a href="post.php?article=<?php echo $link_to ?>"><?php echo $title ?></a>
-														</h4>
-													</div>
-													<div class="entry-meta">
-														<ul>
-															<li><i class="icon-comments-alt"></i> 35 Comentarii</li>
-														</ul>
-													</div>
-												</div>
-											</div>
-										</div>
-									<?php } ?>
-								</div>
-							</div>
-
-						</div>
-
-					</div>
-				</div>
+				<?php include "PHP/blog_sidebar.php"; ?>
 
 			</div><!-- .sidebar end -->
 		</div>
@@ -291,5 +261,21 @@
 	</div>
 	</div>
 </section><!-- #content end -->
+<!-- CAPTCHA -->
+<script>
+	function getReCaptcha() {
+		grecaptcha.ready(function () {
+			grecaptcha.execute("<?php echo $site_key ?>", { action: 'homepage' }).then(function (token) {
+				document.getElementById("g-recaptcha-response").value = token;
+			});
+		});
+
+	}
+	getReCaptcha();
+	//Refesh token Every 110 Seconds
+	setInterval(function () {
+		getReCaptcha();
+	}, 110 * 1000)
+</script>
 
 <?php include "PHP/footer.php"; ?>

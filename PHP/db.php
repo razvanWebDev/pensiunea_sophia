@@ -1,4 +1,6 @@
 <?php
+$site_key = '6LcDIlYeAAAAAK3lDX1ySTuiIpIOMbqoCGvxO04H';
+$secret_key = '6LcDIlYeAAAAACOueqDHMYwj5upyutZuEg0k2IWA';
 //website url needed for forgot password
 $website_url = "http://gdarcht.com";
 
