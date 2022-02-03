@@ -26,6 +26,14 @@
         include "includes/blog_fotos.php";
         break;
 
+        case 'post_comments';
+        include "includes/blog_post_comments.php";
+        break;
+
+        case 'edit_comment';
+        include "includes/edit_comment.php";
+        break;
+
         default:
         include "includes/view_all_posts.php";
       }

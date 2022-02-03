@@ -427,4 +427,20 @@ function addGalleryImagesToDB($imageName){
   }
 }
 
+function editComment($name, $email, $comment, $id) {
+  global $connection;
+
+  $query = "UPDATE blog_comments SET name = ?, email = ?, comment = ? WHERE id = '{$id}'";
+  $stmt = mysqli_stmt_init($connection);
+
+  if(!mysqli_stmt_prepare($stmt, $query)){
+    header("Location: blog.php?source=edit_comment&id=$id");
+    exit();
+  }else{
+    mysqli_stmt_bind_param($stmt, "sss", $name, $email, $comment);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);  
+  }
+}
+
 ?>

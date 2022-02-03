@@ -59,6 +59,7 @@ if(isset($_GET["status_select"])){
             <th>Data articol</th>
             <th>Descriere</th>
             <th>Poza principala</th>
+            <th>Comentarii</th>
             <th>Modifica</th>
             <th>Sterge</th>
           </tr>
@@ -159,9 +160,15 @@ if(isset($_GET["status_select"])){
                 href='blog.php?source=blog_fotos&post_id=<?php echo $id ?>'>Modifica poze</a>
             </td>
             <td class="text-center">
+              <a href="blog.php?source=post_comments&post_id=<?php echo $id ?>"
+                class="btn btn-sm btn-primary edit-delete-btn">
+                <i class="fas fa-comments mr-2"></i>Vezi cometarii
+              </a>
+            </td>
+            <td class="text-center">
               <a href="blog.php?source=edit_post&id=<?php echo $id ?>"
                 class="btn btn-sm btn-primary edit-delete-btn">
-                <i class="far fa-edit mr-2"></i>Modifica text
+                <i class="far fa-edit mr-2"></i>Modifica articol
               </a>
             </td>
             <td class="text-center">
