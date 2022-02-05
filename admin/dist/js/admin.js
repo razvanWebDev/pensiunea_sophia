@@ -82,93 +82,105 @@ window.onload = () => {
 
 //Dropzone file uploads (must pe outside window.onload area!!! )==============
 //upload gallery photos
-Dropzone.options.dropzoneFrom = {
-  maxFilesize: 4,
-  resizeWidth: 1920,
-  resizeQuality: 0.8,
-  acceptedFiles: ".png,.jpg,.gif,.bmp,.jpeg",
-  init: function () {
-    myDropzone = this;
-    this.on("complete", function () {
-      if (
-        this.getQueuedFiles().length == 0 &&
-        this.getUploadingFiles().length == 0
-      ) {
-        var _this = this;
-        _this.removeAllFiles();
-      }
-      list_image();
-    });
-  },
-};
-//display uploaded files
-function list_image() {
-  $.ajax({
-    url: `upload_gallery_fotos.php`,
-    success: function (data) {
-      $("#preview").html(data);
+const dropzoneGalleryFotos = document.querySelector("#dropzoneFrom");
+if (
+  typeof dropzoneGalleryFotos !== "undefined" &&
+  dropzoneGalleryFotos !== null
+) {
+  console.log("1111111111111111");
+  Dropzone.options.dropzoneFrom = {
+    maxFilesize: 4,
+    resizeWidth: 1920,
+    resizeQuality: 0.8,
+    acceptedFiles: ".png,.jpg,.gif,.bmp,.jpeg",
+    init: function () {
+      myDropzone = this;
+      this.on("complete", function () {
+        if (
+          this.getQueuedFiles().length == 0 &&
+          this.getUploadingFiles().length == 0
+        ) {
+          var _this = this;
+          _this.removeAllFiles();
+        }
+        list_image();
+      });
     },
+  };
+  //display uploaded files
+  function list_image() {
+    $.ajax({
+      url: `upload_gallery_fotos.php`,
+      success: function (data) {
+        $("#preview").html(data);
+      },
+    });
+  }
+  //display existing images on page load
+  list_image();
+
+  //delete photo
+  $(document).on("click", ".remove_image", function () {
+    var id = $(this).attr("id");
+    $.ajax({
+      url: `upload_gallery_fotos.php`,
+      method: "POST",
+      data: { id: id },
+      success: function (data) {
+        list_image();
+      },
+    });
   });
 }
-//display existing images on page load
-list_image();
-
-//delete photo
-$(document).on("click", ".remove_image", function () {
-  var id = $(this).attr("id");
-  $.ajax({
-    url: `upload_gallery_fotos.php`,
-    method: "POST",
-    data: { id: id },
-    success: function (data) {
-      list_image();
-    },
-  });
-});
 // #################################################
 //upload blog post photos
-Dropzone.options.dropzoneBlog = {
-  maxFilesize: 4,
-  resizeWidth: 1920,
-  resizeQuality: 0.8,
-  acceptedFiles: ".png,.jpg,.gif,.bmp,.jpeg",
-  init: function () {
-    myDropzone = this;
-    this.on("complete", function () {
-      if (
-        this.getQueuedFiles().length == 0 &&
-        this.getUploadingFiles().length == 0
-      ) {
-        var _this = this;
-        _this.removeAllFiles();
-      }
-      list_blog_image(post_id.value);
-    });
-  },
-};
-//display uploaded files
-function list_blog_image(post_id) {
-  $.ajax({
-    url: `upload_post_fotos.php?post_id=${post_id}`,
-    success: function (data) {
-      $("#preview").html(data);
-    },
-  });
-}
-//display existing images on page load
-if (typeof post_id !== "undefined" && post_id !== null) {
-  list_blog_image(post_id.value);
-}
+const dropzoneBlogFotos = document.querySelector("#dropzoneBlog");
+if (typeof dropzoneBlogFotos !== "undefined" && dropzoneBlogFotos !== null) {
+  console.log("222222222222222");
 
-//delete photo
-$(document).on("click", ".remove_blog_image", function () {
-  var id = $(this).attr("id");
-  $.ajax({
-    url: `upload_post_fotos.php?post_id=${post_id.value}`,
-    method: "POST",
-    data: { id: id },
-    success: function (data) {
-      list_blog_image(post_id.value);
+  Dropzone.options.dropzoneBlog = {
+    maxFilesize: 4,
+    resizeWidth: 1920,
+    resizeQuality: 0.8,
+    acceptedFiles: ".png,.jpg,.gif,.bmp,.jpeg",
+    init: function () {
+      myDropzone = this;
+      this.on("complete", function () {
+        if (
+          this.getQueuedFiles().length == 0 &&
+          this.getUploadingFiles().length == 0
+        ) {
+          var _this = this;
+          _this.removeAllFiles();
+        }
+        list_blog_image(post_id.value);
+      });
     },
+  };
+  //display uploaded files
+  function list_blog_image(post_id) {
+    $.ajax({
+      url: `upload_post_fotos.php?post_id=${post_id}`,
+      success: function (data) {
+        $("#preview").html(data);
+      },
+    });
+  }
+  //display existing images on page load
+  if (typeof post_id !== "undefined" && post_id !== null) {
+    list_blog_image(post_id.value);
+  }
+
+  //delete photo
+  $(document).on("click", ".remove_blog_image", function () {
+    var id = $(this).attr("id");
+    $.ajax({
+      url: `upload_post_fotos.php?post_id=${post_id.value}`,
+      method: "POST",
+      data: { id: id },
+      success: function (data) {
+        list_blog_image(post_id.value);
+      },
+    });
   });
-});
+}

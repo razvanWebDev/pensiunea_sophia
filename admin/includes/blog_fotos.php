@@ -16,7 +16,7 @@
 
       <form action="upload_post_fotos.php" class="dropzone" id="dropzoneBlog" method="POST">
         <div class="dz-message">
-          Drop files here or click to upload
+          Drop files here or click to upload blog photos
         </div>
         <input type="hidden" name="post_id" id="post_id" value="<?php echo $post_id ?>">
       </form>

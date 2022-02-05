@@ -20,7 +20,7 @@
 
           <form action="upload_gallery_fotos.php" class="dropzone" id="dropzoneFrom" method="POST">
             <div class="dz-message">
-              Drop files here or click to upload
+              Drop files here or click to upload gallery photos
             </div>
           </form>
 

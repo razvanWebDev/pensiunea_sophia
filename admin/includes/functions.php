@@ -365,7 +365,7 @@ function addBlogImagesToDB($post_id, $folder_name, $imageName){
   $stmt = mysqli_stmt_init($connection);
 
   if(!mysqli_stmt_prepare($stmt, $query)){
-    header("Location: blog.php?source=blog_fotos");
+    header("Location: blog.php?source=blog_fotos&upload=error");
     exit();
   }else{
     mysqli_stmt_bind_param($stmt, "sss", $post_id, $folder_name, $imageName);
