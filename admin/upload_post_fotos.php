@@ -36,7 +36,7 @@ if(isset($_GET['post_id']) && $_GET['post_id'] > 0){
   
   $output = '<div class="uploaded-images-container">';
 
-    $fotos_query = "SELECT * FROM  blog_fotos WHERE post_id = {$post_id} ORDER BY id";
+    $fotos_query = "SELECT * FROM  blog_fotos WHERE post_id = {$post_id} ORDER BY id DESC";
     $fotos_result = mysqli_query($connection, $fotos_query);
     while($row = mysqli_fetch_assoc($fotos_result)){
       $image_id = (!empty($row['id']) ? $row['id'] : ""); 
