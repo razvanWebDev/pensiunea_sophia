@@ -4,9 +4,9 @@ window.onload = () => {
   const btnDone = document.querySelector("#btnDone");
   //get current page
   let currentPageURL = window.location.href;
-  if (currentPageURL.indexOf("?") > 0) {
-    currentPageURL = currentPageURL.substring(0, currentPageURL.indexOf("?"));
-  }
+  // if (currentPageURL.indexOf("?") > 0) {
+  //   currentPageURL = currentPageURL.substring(0, currentPageURL.indexOf("?"));
+  // }
 
   // Check if element exists before calling function
   const elementExists = (element) => {
@@ -18,6 +18,8 @@ window.onload = () => {
     sidebarLinks.forEach((sidebarLink) => {
       sidebarLink.classList.remove("active");
       const currentLink = sidebarLink.href;
+      console.log("currentLink: ", currentLink);
+      console.log("currentPageURL: ", currentPageURL);
       if (currentPageURL === currentLink) {
         //activate link
         sidebarLink.classList.add("active");
@@ -87,7 +89,6 @@ if (
   typeof dropzoneGalleryFotos !== "undefined" &&
   dropzoneGalleryFotos !== null
 ) {
-  console.log("1111111111111111");
   Dropzone.options.dropzoneFrom = {
     maxFilesize: 4,
     resizeWidth: 1920,
@@ -136,8 +137,6 @@ if (
 //upload blog post photos
 const dropzoneBlogFotos = document.querySelector("#dropzoneBlog");
 if (typeof dropzoneBlogFotos !== "undefined" && dropzoneBlogFotos !== null) {
-  console.log("222222222222222");
-
   Dropzone.options.dropzoneBlog = {
     maxFilesize: 4,
     resizeWidth: 1920,
