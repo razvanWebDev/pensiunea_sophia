@@ -12,8 +12,11 @@
     <div class="user-panel mt-3 pb-3 mb-3 d-flex">
       <div class="image">
         <?php
-               $user_image = ifExists($_SESSION["user_image"]) ? $_SESSION["user_image"] : "user.png";
-            ?>
+          $user_image = "user.png";
+          if(isset($_SESSION["user_image"])){
+            $user_image = $_SESSION["user_image"];
+          }
+        ?>
         <img src="dist/img/users/<?php echo $user_image; ?>" class="img-circle elevation-2" alt="User Image">
       </div>
       <div class="info">

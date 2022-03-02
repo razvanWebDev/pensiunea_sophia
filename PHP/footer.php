@@ -23,26 +23,16 @@
                         <i class="icon-facebook"></i>
                     </a>
 
-                    <a href="#" target="_blank" class="social-icon si-small si-borderless si-twitter">
-                        <i class="icon-twitter"></i>
-                        <i class="icon-twitter"></i>
-                    </a>
-
-                    <a href="#" target="_blank" class="social-icon si-small si-borderless si-instagram">
+                    <a href="https://www.instagram.com/pensiunea_sophia/" target="_blank" class="social-icon si-small si-borderless si-instagram">
                         <i class="icon-instagram"></i>
                         <i class="icon-instagram"></i>
-                    </a>
-
-                    <a href="#" target="_blank" class="social-icon si-small si-borderless si-linkedin">
-                        <i class="icon-linkedin"></i>
-                        <i class="icon-linkedin"></i>
                     </a>
                 </div>
 
                 <div class="clear"></div>
 
-                <i class="icon-envelope" style="transform: translateY(5%);"></i> sophiapensiune@gmail.com <span class="middot">&middot;</span> <i
-                    class="icon-headphones"></i> +40-757-548-653
+                <i class="icon-envelope" style="transform: translateY(5%);"></i><a href="mailto: sophiapensiune@gmail.com"> sophiapensiune@gmail.com</a><span class="middot">&middot;</span> <i
+                    class="icon-headphones"></i> <a href="tel:+40757548653">+40-757-548-653</a>
             </div>
 
         </div>

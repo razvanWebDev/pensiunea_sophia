@@ -44,7 +44,7 @@
 							<ul class="menu-container">
 								<li class="menu-item <?php echo $currentPageName === "index" ? "current" : ""; ?>">
 									<a class="menu-link" href="/">
-										<div>Acasa</div>
+										<div>Acasă</div>
 									</a>
 								</li>
 								<li class="menu-item <?php echo $currentPageName === "despre-noi" ? "current" : ""; ?>">
@@ -54,7 +54,7 @@
 								</li>
 								<li class="menu-item <?php echo $currentPageName === "atractii-turistice" ? "current" : ""; ?>">
 									<a class="menu-link" href="atractii-turistice">
-										<div>Atractii Turistice</div>
+										<div>Atracții Turistice</div>
 									</a>
 								</li>
 								<li class="menu-item <?php echo $currentPageName === "galerie-foto" ? "current" : ""; ?>">

@@ -132,13 +132,16 @@
 											$num_comments = mysqli_num_rows($select_comments);
 											$comments = ($num_comments === 1 ? "comentariu" : "comentarii")
 										?>
-										<li><i class="icon-comments"></i> <?php echo $num_comments." ".$comments ?></li>
+										<li><i class="icon-comments"></i>
+											<?php echo $num_comments." ".$comments ?>
+										</li>
 										<li><i class="icon-picture"></i></li>
 									</ul>
 								</div>
 								<div class="entry-content">
 									<?php echo $short_text ?><br><br>
-									<a href="post.php?article=<?php echo $link_to ?>" class="more-link">Deschide articol</a>
+									<a href="post.php?article=<?php echo $link_to ?>" class="more-link">Deschide
+										articol</a>
 								</div>
 							</div>
 						</div>
@@ -173,5 +176,5 @@
 	</div>
 	</div>
 </section><!-- #content end -->
-
+<?php include "PHP/call_now_banner.php"; ?>
 <?php include "PHP/footer.php"; ?>

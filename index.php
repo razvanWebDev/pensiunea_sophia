@@ -1,7 +1,7 @@
 <?php include "PHP/header.php"; ?>
 <?php include "PHP/nav.php"; ?>
 
-<section id="slider" class="slider-element swiper_wrapper min-vh-100 include-header" data-autoplay="10000"
+<section id="slider" class="slider-element swiper_wrapper min-vh-100 include-header" data-autoplay="10000000"
 	data-speed="1000" data-loop="true">
 	<div class="slider-inner">
 
@@ -9,12 +9,14 @@
 			<div class="swiper-wrapper">
 				<div class="swiper-slide dark">
 					<div class="container">
-						<div class="slider-caption slider-caption-center">
+						<div class="slider-caption slider-caption-center align-items-center">
 							<h2 data-animate="fadeInUp">Pensiunea SOPHIA</h2>
 							<p class="d-none d-sm-block" data-animate="fadeInUp" data-delay="200">
-								Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis nostrum odio,
-								maiores minus sunt, consectetur debitis iusto quos neque ratione tempora !
+								Liniște, Relaxare și Distracție. <br>
+								Locația ideală pentru o vacanță!
 							</p>
+							<a href="contact" target="_blank" class="button button-large button-rounded topmargin-sm"
+								data-animate="fadeInUp" data-delay="400">REZERVĂ ACUM</a>
 						</div>
 					</div>
 					<div class="swiper-slide-bg"
@@ -24,12 +26,14 @@
 				</div>
 				<div class="swiper-slide dark">
 					<div class="container">
-						<div class="slider-caption slider-caption-center">
+						<div class="slider-caption slider-caption-center align-items-center">
 							<h2 data-animate="fadeInUp">Pensiunea SOPHIA</h2>
 							<p class="d-none d-sm-block" data-animate="fadeInUp" data-delay="200">
-								Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis nostrum odio,
-								maiores minus sunt, consectetur debitis iusto quos neque ratione tempora !
+								Liniște, Relaxare și Distracție. <br>
+								Locația ideală pentru o vacanță!
 							</p>
+							<a href="contact" target="_blank" class="button button-large button-rounded topmargin-sm"
+								data-animate="fadeInUp" data-delay="400">REZERVĂ ACUM</a>
 						</div>
 					</div>
 					<div class="swiper-slide-bg"
@@ -39,12 +43,32 @@
 				</div>
 				<div class="swiper-slide dark">
 					<div class="container">
-						<div class="slider-caption slider-caption-center">
+						<div class="slider-caption slider-caption-center align-items-center">
 							<h2 data-animate="fadeInUp">Pensiunea SOPHIA</h2>
 							<p class="d-none d-sm-block" data-animate="fadeInUp" data-delay="200">
-								Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corrupti, molestias
-								ducimus numquam maiores eos quia repellat illo nisi autem quisquam!
+								Liniște, Relaxare și Distracție. <br>
+								Locația ideală pentru o vacanță!
 							</p>
+							<a href="contact" target="_blank" class="button button-large button-rounded topmargin-sm"
+								data-animate="fadeInUp" data-delay="400">REZERVĂ ACUM</a>
+						</div>
+					</div>
+					<div class="swiper-slide-bg"
+						style="background-image: url('images/slider/swiper/Pensiunea Sophia-13.jpg');">
+					</div>
+					<div class="bg-overlay" style="background-color: rgba(0,0,0,0.40);"></div>
+				</div>
+
+				<!-- VIDEO SLIDE -->
+				<!-- <div class="swiper-slide dark">
+					<div class="container">
+						<div class="slider-caption slider-caption-center align-items-center">
+							<h2 data-animate="fadeInUp">Pensiunea SOPHIA</h2>
+							<p class="d-none d-sm-block" data-animate="fadeInUp" data-delay="200">
+								Liniște, Relaxare și Distracție. <br>
+								Locația ideală pentru o vacanță!
+							</p>
+							<a href="contact" target="_blank" class="button button-large button-rounded topmargin-sm" data-animate="fadeInUp" data-delay="400">REZERVĂ ACUM</a>
 						</div>
 					</div>
 					<div class="video-wrap">
@@ -55,7 +79,7 @@
 						</video>
 						<div class="video-overlay" style="background-color: rgba(0,0,0,0.25);"></div>
 					</div>
-				</div>
+				</div> -->
 			</div>
 			<div class="slider-arrow-left"><i class="icon-angle-left"></i></div>
 			<div class="slider-arrow-right"><i class="icon-angle-right"></i></div>
@@ -72,7 +96,6 @@
 
 <section id="content">
 	<div class="container clearfix topmargin-lg bottommargin-lg">
-
 		<div class="row align-items-center col-mb-50">
 			<div class="col-md-6 text-center">
 				<img src="images/slider/swiper/Pensiunea Sophia-48.jpg" alt="Image" data-animate="fadeInLeft">
@@ -80,23 +103,20 @@
 
 			<div class="col-md-6">
 				<div class="heading-block">
-
 					<h2>Despre Noi</h2>
-
 				</div>
 
-				<p>Pensiunea Sophia este situată în Sărmășag, județul Sălaj. Dispune de: 8 camere cu baie
-					proprie, living spațios, bucătărie, terasă închisă, ceaun și grătar, ciubăr, loc de joacă,
-					masă de ping-pong, sistem de sonorizare și parcare.
+				<p>Pensiunea Sophia îți oferă cadrul ideal pentru o vacanță împreună cu familia și prietenii, departe de
+					zgomotul orașului.
 				</p>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae, repudiandae, maxime,
-					earum, sapiente assumenda non odit laborum qui vero vel quos sint excepturi in laudantium.
+				<p>Avem toate ingredientele necesare pentru zile de neuitat, alături de cei dragi: camere confortabile,
+					bucătărie complet utilată, loc pentru grătar și ceaun, ciubăr, masă de ping-pong, loc de joacă
+					pentru copii, muzică și baltă pentru pescuit. Activități diverse, pentru cei mici și cei mari!
 				</p>
 
-				<a href="#" class="button button-border button-large button-rounded topmargin-sm ms-0">Deschide</a>
+				<a href="despre-noi" class="button button-border button-large button-rounded ms-0">AFLĂ MAI MULTE</a>
 			</div>
 		</div>
-
 	</div>
 </section>
 
@@ -123,7 +143,7 @@
 						<i class="icon-food2 i-alt"></i>
 					</div>
 					<div class="fbox-content">
-						<p>Bucătărie utilată pentru 50 de persoane</p>
+						<p>Bucătărie complet utilată pentru 50 de persoane</p>
 					</div>
 				</div>
 			</div>
@@ -133,7 +153,7 @@
 						<i class="icon-umbrella-beach i-alt"></i>
 					</div>
 					<div class="fbox-content">
-						<p>Terasă de 80mp cu ceaun și grătar.</p>
+						<p>-> Terasă spațioasă, cu ceaun și grătar</p>
 					</div>
 				</div>
 			</div>
@@ -153,7 +173,7 @@
 						<i class="icon-volleyball-ball i-alt"></i>
 					</div>
 					<div class="fbox-content">
-						<p>Loc de jpacă pentru copii</p>
+						<p>Loc de joacă pentru copii</p>
 					</div>
 				</div>
 			</div>
@@ -191,32 +211,30 @@
 	</div>
 </section>
 
+<?php include "PHP/call_now_banner.php"; ?>
+
 <section>
 	<div class="container clearfix topmargin-lg bottommargin-lg">
-
 		<div class="row flex-row-reverse align-items-center col-mb-50">
 			<div class="col-md-6 text-center">
-				<img src="images/slider/swiper/Pensiunea Sophia-1.jpg" alt="Image" data-animate="fadeInRight">
+				<img src="images/attractions/attractions_main_page.jpg" alt="Image" data-animate="fadeInRight">
 			</div>
 			<div class="col-md-6">
 				<div class="heading-block">
 					<h2>Atracții Turistice</h2>
 				</div>
 
-				<p class="text-justify">2Pensiunea Sophia este situată în Sărmășag, județul Sălaj. Dispune de: 8
-					camere cu baie
-					proprie, living spațios, bucătărie, terasă închisă, ceaun și grătar, ciubăr, loc de joacă,
-					masă de ping-pong, sistem de sonorizare și parcare.
-				</p>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae, repudiandae, maxime,
-					earum, sapiente assumenda non odit laborum qui vero vel quos sint excepturi in laudantium.
+				<p class="text-justify">Atracțiile turistice din zona, care merită o vizită în sejurul tău la Pensiunea
+					Sophia, sunt Băile Termale <a href="http://www.tasnad-statiune.ro/contents/4/"
+						target="_blank">Tășnad</a> și <a href="https://strandmihaieni.ro/" target="_blank">Mihăieni</a>.
+					Pentru pasionații și amatorii de pescuit, vă invităm la balta noastră cu pește, pentru o distracție
+					pe măsură.
 				</p>
 
-				<a href="#" class="button button-border button-large button-rounded topmargin-sm ms-0">Deschide</a>
+				<a href="atractii-turistice"
+					class="button button-border button-large button-rounded topmargin-sm ms-0">AFLĂ MAI MULTE</a>
 			</div>
-
 		</div>
-
 	</div>
 </section>
 
@@ -227,45 +245,60 @@
 
 
 	<div class="heading-block center position-relative z-10">
-		<h3>CE SPUN CLIENȚII NOȘTRI ?</h3>
+		<h3>CE SPUN CLIENȚII NOȘTRI DESPRE EXPERIENȚA LOR LA NOI?</h3>
 	</div>
 
 	<div class="fslider testimonial testimonial-full" data-animation="fade" data-arrows="false">
 		<div class="flexslider">
 			<div class="slider-wrap">
 				<div class="slide">
-					<div class="testi-image">
-						<a href="#"><img src="images/testimonials/3.jpg" alt="Customer Testimonails"></a>
+					<div class="feature-box fbox-center">
+						<a href="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fbusecan.mihai%2Fposts%2F7114625978555074&show_text=true&width=500"
+							target="_blank">
+							<div class="fbox-icon">
+								<i class="icon-user-alt"></i>
+							</div>
+						</a>
 					</div>
+
 					<div class="testi-content">
-						<p>Similique fugit repellendus expedita excepturi iure perferendis provident quia eaque.
-							Repellendus, vero numquam?</p>
+						<p>O locație frumoasă, cu condiții excelente pentru petrecerea timpului liber. Curte mare,
+							îngrădită, și spațiu de joacă pentru copii. Recomand!” </p>
 						<div class="testi-meta">
-							Steve Jobs
+							Mihai B.
 						</div>
 					</div>
 				</div>
 				<div class="slide">
-					<div class="testi-image">
-						<a href="#"><img src="images/testimonials/2.jpg" alt="Customer Testimonails"></a>
+					<div class="feature-box fbox-center">
+						<a href="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fmonica.szigeti.7%2Fposts%2F10224533102509479&show_text=true&width=500"
+							target="_blank">
+							<div class="fbox-icon">
+								<i class="icon-user-alt"></i>
+							</div>
+						</a>
 					</div>
 					<div class="testi-content">
-						<p>Natus voluptatum enim quod necessitatibus quis expedita harum provident eos obcaecati
-							id culpa corporis molestias.</p>
+						<p>Am fost aici și m-am simțit foarte bine de fiecare dată, gazde primitoare, condiții
+							excelente, așa că vă recomand cu tot dragul să mergeți și voi &#128522;” </p>
 						<div class="testi-meta">
-							Collis Ta'eed
+							Monica S
 						</div>
 					</div>
 				</div>
 				<div class="slide">
-					<div class="testi-image">
-						<a href="#"><img src="images/testimonials/1.jpg" alt="Customer Testimonails"></a>
+					<div class="feature-box fbox-center">
+						<a href="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fchibelean.andrei%2Fposts%2F3810334619005394&show_text=true&width=500"
+							target="_blank">
+							<div class="fbox-icon">
+								<i class="icon-user-alt"></i>
+							</div>
+						</a>
 					</div>
 					<div class="testi-content">
-						<p>Incidunt deleniti blanditiis quas aperiam recusandae consequatur ullam quibusdam cum
-							libero illo rerum!</p>
+						<p>O locație excelentă, liniștită. Am petrecut o vacanță relaxantă aici. Recomand 100%!” </p>
 						<div class="testi-meta">
-							John Doe
+							Andrei C.
 						</div>
 					</div>
 				</div>
@@ -275,55 +308,71 @@
 
 </div>
 
+<?php
+
+	$blog_posts_query = "SELECT * FROM blog WHERE status='public' ORDER BY date DESC LIMIT 6";
+	$select_posts = mysqli_query($connection, $blog_posts_query);
+	$posts_count = mysqli_num_rows($select_posts);
+
+	if($posts_count > 1){
+?>
+
 <section id="blog-section">
-	<div class="container clearfix">
+	<div class="container clearfix bottommargin-sm">
 		<div class="fancy-title title-border title-center">
-			<h2>ULTIMELE ARTICOLE BLOG</h2>
-		</div>
-
-
-		<div id="portfolio-ajax-wrap">
-			<div id="portfolio-ajax-container"></div>
-		</div>
-
-		<div id="portfolio-ajax-loader">
-			<div class="css3-spinner">
-				<div class="css3-spinner-ball-scale-multiple">
-					<div></div>
-					<div></div>
-					<div></div>
-				</div>
-			</div>
+			<h2>NOUTĂȚI</h2>
 		</div>
 
 		<div id="portfolio" class="portfolio row grid-container gutter-20 topmargin-xs" data-layout="fitRows">
 
+			<?php
+			while ($row = mysqli_fetch_assoc($select_posts)) {
+				$post_id = $row['id'];
+				$title = (!empty($row['title']) ? $row['title'] : "");
+				$link_to = (!empty($row['link_to']) ? $row['link_to'] : "");
+				$date = (!empty($row['date']) ? $row['date'] : "");
+				$formated_date = date('d.m.Y',strtotime($date));
+
+		?>
+
 			<!-- Portfolio Item: Start -->
-			<article id="portfolio-item-1" data-loader="include/ajax/portfolio-ajax-image.php"
-				class="portfolio-item col-lg-4 col-md-4 col-sm-6 col-12 pf-media pf-icons">
+			<article class="portfolio-item col-lg-4 col-md-4 col-sm-6 col-12 pf-media pf-icons">
 				<!-- Grid Inner: Start -->
 				<div class="grid-inner">
 					<!-- Image: Start -->
+					<?php
+						//display image
+						$image_query = "SELECT * FROM blog_fotos WHERE post_id = {$post_id} ORDER BY id DESC LIMIT 1";
+						$image_result = mysqli_query($connection, $image_query);
+						while($row = mysqli_fetch_assoc($image_result)){
+							$folder_name = (!empty($row['folder_name']) ? $row['folder_name'] : ""); 
+							$image = (!empty($row['image']) ? $row['image'] : ""); 
+						}
+					?>
 					<div class="portfolio-image">
-						<a href="portfolio-single.html">
-							<img src="images/blog/1/3.jpg" alt="Post photo">
-						</a>
+						<img src="images/<?php echo $folder_name ?>/<?php echo $image ?>" alt="Post photo">
 						<!-- Overlay: Start -->
 						<div class="bg-overlay">
 							<div class="bg-overlay-content dark flex-column" data-hover-animate="fadeIn">
 								<!-- Decription: Start -->
 								<div class="portfolio-desc pt-0 center" data-hover-animate="fadeInDownSmall"
 									data-hover-animate-out="fadeOutUpSmall" data-hover-speed="350">
-									<h3><a href="portfolio-single.html">Title 1</h3>
-									<span>28/01/2022</a></span>
+									<h3><a href="post.php?article=<?php echo $link_to ?>">
+											<?php echo $title ?>
+									</h3>
+									<span>
+										<?php echo $formated_date ?></a>
+									</span>
 								</div>
 								<!-- Description: End -->
 								<div class="d-flex">
-									<a href="images/blog/1/3.jpg" class="overlay-trigger-icon bg-light text-dark"
+									<a href="images/<?php echo $folder_name ?>/<?php echo $image ?>" target="_blank"
+										class="overlay-trigger-icon bg-light text-dark"
 										data-hover-animate="fadeInUpSmall" data-hover-animate-out="fadeOutDownSmall"
 										data-hover-speed="350" data-lightbox="image" title="Image"><i
 											class="icon-line-plus"></i></a>
-									<a href="portfolio-single.html" class="overlay-trigger-icon bg-light text-dark"
+									<a href="post.php?article=<?php echo $link_to ?>"
+										class="overlay-trigger-icon bg-light text-dark"
 										data-hover-animate="fadeInUpSmall" data-hover-animate-out="fadeOutDownSmall"
 										data-hover-speed="350"><i class="icon-line-ellipsis"></i></a>
 								</div>
@@ -337,89 +386,12 @@
 				<!-- Grid Inner: End -->
 			</article>
 			<!-- Portfolio Item: End -->
-
-			<!-- Portfolio Item: Start -->
-			<article id="portfolio-item-2" data-loader="include/ajax/portfolio-ajax-image.php"
-				class="portfolio-item col-lg-4 col-md-4 col-sm-6 col-12 pf-media pf-icons">
-				<!-- Grid Inner: Start -->
-				<div class="grid-inner">
-					<!-- Image: Start -->
-					<div class="portfolio-image">
-						<a href="portfolio-single.html">
-							<img src="images/blog/1/2.jpg" alt="Post photo">
-						</a>
-						<!-- Overlay: Start -->
-						<div class="bg-overlay">
-							<div class="bg-overlay-content dark flex-column" data-hover-animate="fadeIn">
-								<!-- Decription: Start -->
-								<div class="portfolio-desc pt-0 center" data-hover-animate="fadeInDownSmall"
-									data-hover-animate-out="fadeOutUpSmall" data-hover-speed="350">
-									<h3><a href="portfolio-single.html">Title 1</h3>
-									<span>28/01/2022</a></span>
-								</div>
-								<!-- Description: End -->
-								<div class="d-flex">
-									<a href="images/blog/1/2.jpg" class="overlay-trigger-icon bg-light text-dark"
-										data-hover-animate="fadeInUpSmall" data-hover-animate-out="fadeOutDownSmall"
-										data-hover-speed="350" data-lightbox="image" title="Image"><i
-											class="icon-line-plus"></i></a>
-									<a href="portfolio-single.html" class="overlay-trigger-icon bg-light text-dark"
-										data-hover-animate="fadeInUpSmall" data-hover-animate-out="fadeOutDownSmall"
-										data-hover-speed="350"><i class="icon-line-ellipsis"></i></a>
-								</div>
-							</div>
-							<div class="bg-overlay-bg dark" data-hover-animate="fadeIn"></div>
-						</div>
-						<!-- Overlay: End -->
-					</div>
-					<!-- Image: End -->
-				</div>
-				<!-- Grid Inner: End -->
-			</article>
-			<!-- Portfolio Item: End -->
-
-			<!-- Portfolio Item: Start -->
-			<article id="portfolio-item-3" data-loader="include/ajax/portfolio-ajax-image.php"
-				class="portfolio-item col-lg-4 col-md-4 col-sm-6 col-12 pf-media pf-icons">
-				<!-- Grid Inner: Start -->
-				<div class="grid-inner">
-					<!-- Image: Start -->
-					<div class="portfolio-image">
-						<a href="portfolio-single.html">
-							<img src="images/blog/1/1.jpg" alt="Post photo">
-						</a>
-						<!-- Overlay: Start -->
-						<div class="bg-overlay">
-							<div class="bg-overlay-content dark flex-column" data-hover-animate="fadeIn">
-								<!-- Decription: Start -->
-								<div class="portfolio-desc pt-0 center" data-hover-animate="fadeInDownSmall"
-									data-hover-animate-out="fadeOutUpSmall" data-hover-speed="350">
-									<h3><a href="portfolio-single.html">Title 1</h3>
-									<span>28/01/2022</a></span>
-								</div>
-								<!-- Description: End -->
-								<div class="d-flex">
-									<a href="images/blog/1/1.jpg" class="overlay-trigger-icon bg-light text-dark"
-										data-hover-animate="fadeInUpSmall" data-hover-animate-out="fadeOutDownSmall"
-										data-hover-speed="350" data-lightbox="image" title="Image"><i
-											class="icon-line-plus"></i></a>
-									<a href="portfolio-single.html" class="overlay-trigger-icon bg-light text-dark"
-										data-hover-animate="fadeInUpSmall" data-hover-animate-out="fadeOutDownSmall"
-										data-hover-speed="350"><i class="icon-line-ellipsis"></i></a>
-								</div>
-							</div>
-							<div class="bg-overlay-bg dark" data-hover-animate="fadeIn"></div>
-						</div>
-						<!-- Overlay: End -->
-					</div>
-					<!-- Image: End -->
-				</div>
-				<!-- Grid Inner: End -->
-			</article>
-			<!-- Portfolio Item: End -->
-
+			<?php } ?>
 		</div><!-- #portfolio end -->
 	</div>
 </section>
+
+<!-- if($posts_count > 2) -->
+<?php } ?>
 
 <?php include "PHP/footer.php"; ?>

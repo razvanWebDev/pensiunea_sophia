@@ -31,7 +31,7 @@
               <div class="icon">
                 <i class="fas fa-user"></i>
               </div>
-              <a href="blog.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="blog.php" class="small-box-footer">Info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- small box -->
@@ -51,7 +51,7 @@
               <div class="icon">
                 <i class="fas fa-envelope"></i>
               </div>
-              <a href="contact.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="contact.php" class="small-box-footer">Info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
 
@@ -72,7 +72,7 @@
               <div class="icon">
                 <i class="fas fa-user"></i>
               </div>
-              <a href="users.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="users.php" class="small-box-footer">Info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
 

@@ -18,6 +18,10 @@
 	<link rel="stylesheet" href="style.css" type="text/css" />
 	<link rel="stylesheet" href="css/swiper.css" type="text/css" />
 	<link rel="stylesheet" href="css/dark.css" type="text/css" />
+	<!-- Crowdfunding Demo Specific Stylesheet -->
+	<link rel="stylesheet" href="demos/crowdfunding/crowdfunding.css" type="text/css" />
+	<link rel="stylesheet" href="demos/crowdfunding/css/fonts.css" type="text/css" />
+	<!-- / -->
 	<link rel="stylesheet" href="css/font-icons.css" type="text/css" />
 	<link rel="stylesheet" href="css/animate.css" type="text/css" />
 	<link rel="stylesheet" href="css/magnific-popup.css" type="text/css" />

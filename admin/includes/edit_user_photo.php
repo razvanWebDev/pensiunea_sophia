@@ -31,7 +31,8 @@
             if(!$update_photo) {
                 die("QUERY FAILED" . mysqli_error($connection));
             }
-          
+
+            $_SESSION["user_image"] = $user_image;
         }
 
         header("Location: users.php?source=edit_user&u_id={$user_id}");
