@@ -17,11 +17,8 @@
 
 						<!-- Logo
 						============================================= -->
-						<div id="logo">
-							<!-- <a href="index.html" class="standard-logo" data-dark-logo="images/logo-dark.png"><img
-									src="images/logo.png" alt="Logo"></a>
-							<a href="index.html" class="retina-logo" data-dark-logo="images/logo-dark@2x.png"><img
-									src="images/logo@2x.png" alt="Logo"></a> -->
+						<div id="logo">				
+							<i class="icon-phone"></i>  	<a href="tel:+40757548653" class="fs-6">   <span style="display: inline-block; margin-left: 0.4em;">   +40-757-548-653</span></a>
 						</div><!-- #logo end -->
 
 
@@ -76,8 +73,6 @@
 							</ul>
 
 						</nav><!-- #primary-menu end -->
-
-
 					</div>
 				</div>
 			</div>

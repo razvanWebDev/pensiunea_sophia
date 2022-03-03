@@ -153,7 +153,7 @@
 						<i class="icon-umbrella-beach i-alt"></i>
 					</div>
 					<div class="fbox-content">
-						<p>-> Terasă spațioasă, cu ceaun și grătar</p>
+						<p>Terasă spațioasă, cu ceaun și grătar</p>
 					</div>
 				</div>
 			</div>
@@ -224,9 +224,11 @@
 					<h2>Atracții Turistice</h2>
 				</div>
 
-				<p class="text-justify">Atracțiile turistice din zona, care merită o vizită în sejurul tău la Pensiunea
+				<p class="text-justify">Atracțiile turistice din zonă, care merită o vizită în sejurul tău la Pensiunea
 					Sophia, sunt Băile Termale <a href="http://www.tasnad-statiune.ro/contents/4/"
 						target="_blank">Tășnad</a> și <a href="https://strandmihaieni.ro/" target="_blank">Mihăieni</a>.
+				</p>
+				<p>
 					Pentru pasionații și amatorii de pescuit, vă invităm la balta noastră cu pește, pentru o distracție
 					pe măsură.
 				</p>
@@ -280,7 +282,7 @@
 					</div>
 					<div class="testi-content">
 						<p>Am fost aici și m-am simțit foarte bine de fiecare dată, gazde primitoare, condiții
-							excelente, așa că vă recomand cu tot dragul să mergeți și voi &#128522;” </p>
+							excelente, așa că vă recomand cu tot dragul să mergeți și voi &#128522;</p>
 						<div class="testi-meta">
 							Monica S
 						</div>

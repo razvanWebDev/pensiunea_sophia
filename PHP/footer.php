@@ -31,8 +31,9 @@
 
                 <div class="clear"></div>
 
-                <i class="icon-envelope" style="transform: translateY(5%);"></i><a href="mailto: sophiapensiune@gmail.com"> sophiapensiune@gmail.com</a><span class="middot">&middot;</span> <i
-                    class="icon-headphones"></i> <a href="tel:+40757548653">+40-757-548-653</a>
+                <i class="icon-envelope" style="transform: translateY(5%);"></i><a href="mailto: sophiapensiune@gmail.com"> sophiapensiune@gmail.com</a>
+                <span class="middot">&middot;</span> 
+                <i class="icon-headphones"></i> <a href="tel:+40757548653">+40-757-548-653</a>
             </div>
 
         </div>
