@@ -8,10 +8,10 @@ if(isset($_POST['submit'])) {
   $captcha = getCaptcha($secret_key, $_POST['g-recaptcha-response']);
 
   //Captcha passed
-  if($captcha->success == true && $captcha->score > 0.5){
-	//if(true){
-    //$email_to = "razvan.crisan@ctotech.io, crsn_razvan@yahoo.com, sophiapensiune@gmail.com, szilarddombi@yahoo.com";
-    $email_to = "razvan.crisan@ctotech.io, crsn_razvan@yahoo.com";
+  //if($captcha->success == true && $captcha->score > 0.5){
+	if(true){
+    $email_to = "razvan.crisan@ctotech.io, crsn_razvan@yahoo.com, sophiapensiune@gmail.com, szilarddombi@yahoo.com";
+    //$email_to = "razvan.crisan@ctotech.io, crsn_razvan@yahoo.com";
     $email_subject = "Mesaj nou pe site!";
 
     //form data 
