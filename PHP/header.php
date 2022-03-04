@@ -7,6 +7,8 @@
 <head>
 
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta name="description" content="Cauți cazare la o pensiune în Sălaj? Pensiunea Sophia din Sărmășag are toate facilitățile: 8 camere, ciubăr, loc de joacă pentru copii, grătar, ceaun, parcare. Acceptăm tichete de vacanță.">
+  	<meta name="keywords" content="pensiune/pensiuni sălaj, pensiune/pensiuni salaj, cazare sălaj, cazare salaj, cabană sărmășag, cabana sarmasag,  pensiune sărmășag, pensiune sarmasag">
 	<meta name="author" content="Pensiunea Sophia" />
 
 	<!-- Stylesheets

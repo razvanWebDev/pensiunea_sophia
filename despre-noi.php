@@ -50,8 +50,6 @@
 		</div>
 	</div>
 
-	<?php include "PHP/call_now_banner.php"; ?>
-
 	<div class="container clearfix topmargin-lg bottommargin-lg">
 		<div class="row flex-row-reverse align-items-center col-mb-50">
 			<div class="col-md-6 text-center">
@@ -85,6 +83,25 @@
 			</div>
 		</div>
 	</div>
+
+	<div class="container clearfix topmargin-lg bottommargin-lg">
+		<div class="row align-items-center col-mb-50">
+			<div class="col-md-6 text-center">
+				<img src="images/about/about_workers.jpg" alt="Image" data-animate="fadeInLeft">
+			</div>
+
+			<div class="col-md-6">
+				<p class="text-justify">
+					Pentru cei care sunt în căutare de cazare în Sălaj (muncitori, lucrători în diverse domenii, etc), pentru o perioadă mai îndelungată, noi vă putem ajuta cu diverse opțiuni de cazare, la alte pensiuni din zonă. 
+				</p>
+				<p class="text-justify">
+					Găsim împreună cea mai potrivită cazare pentru oricine are nevoie.
+				</p>
+			</div>
+		</div>
+	</div>
+
+	<?php include "PHP/call_now_banner.php"; ?>
 
 </section><!-- #content end -->
 
