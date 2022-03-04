@@ -3,6 +3,12 @@ $site_key = '6LcDIlYeAAAAAK3lDX1ySTuiIpIOMbqoCGvxO04H';
 $secret_key = '6LcDIlYeAAAAACOueqDHMYwj5upyutZuEg0k2IWA';
 //website url needed for forgot password
 $website_url = "http://pensiuneasophia.great-site.net";
+// ONLINE official==================
+
+// $server = 'localhost';
+// $username = 'pensiune_user';
+// $password = 'j]RLk;FMjAvK';
+// $dbname = 'pensiune_sophia'; 
 
 // ONLINE (infinityfree)=============
 

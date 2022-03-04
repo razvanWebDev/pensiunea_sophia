@@ -120,6 +120,7 @@
 							</div>
 
 							<input type="hidden" name="prefix" value="template-contactform-">
+							<input type="hidden" name="subject" value="Message from Contact Form">
 
 						</form>
 					</div>

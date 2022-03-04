@@ -20,7 +20,7 @@
 	<link rel="stylesheet" href="style.css" type="text/css" />
 	<link rel="stylesheet" href="css/swiper.css" type="text/css" />
 	<link rel="stylesheet" href="css/dark.css" type="text/css" />
-	<!-- Crowdfunding Demo Specific Stylesheet -->
+	<!-- attractions page stylesheet -->
 	<link rel="stylesheet" href="demos/crowdfunding/crowdfunding.css" type="text/css" />
 	<link rel="stylesheet" href="demos/crowdfunding/css/fonts.css" type="text/css" />
 	<!-- / -->
@@ -32,7 +32,6 @@
 	<link rel="stylesheet" href="css/custom.css" type="text/css" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
     <script src="https://www.google.com/recaptcha/api.js?render=<?php echo $site_key ?>"></script>
-
 
 	<!-- Document Title
 	============================================= -->
