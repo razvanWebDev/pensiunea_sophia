@@ -27,7 +27,7 @@
   object-fit: cover !important;
 }
 /* recaptcha============== */
-.captcha-failed-p {
+.form_message {
   width: 100%;
   text-align: center;
   margin-bottom: 1em;

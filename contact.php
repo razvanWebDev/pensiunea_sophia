@@ -1,6 +1,23 @@
 <?php include "PHP/header.php"; ?>
 <?php include "PHP/nav.php"; ?>
 
+<?php
+    $message = "";
+    $display_message = "none";
+    $message_color = "";
+    if(isset($_GET['error']) == "captcha_failed"){
+        $message = "Eroare captcha. Formularul nu a fost trimis!";
+        $display_message = "block";
+        $message_color = "text-danger";
+    }
+    if(isset($_GET['send']) == "success"){
+        $message = "Formularul a fost trimis cu succes!";
+        $display_message = "block";
+        $message_color = "text-success";
+    }
+
+?>
+
 <!-- Page Title
 	============================================= -->
 <section id="page-title" class="page-title-parallax page-title-dark"
@@ -30,13 +47,11 @@
 				<div class="postcontent col-lg-9">
 
 					<h3>Trimite-ne un mesaj</h3>
-
-					<div class="form-widget">
-
-						<div class="form-result"></div>
-
-						<form class="mb-0" id="template-contactform" name="template-contactform"
-							action="include/form.php" method="post">
+						<form class="mb-0" id="template-contactform" name=""
+							action="PHP/contact.php" method="post">	
+							<p class="<?php echo $message_color ?> form_message" style="display: <?php echo $display_message ?>"><?php echo $message ?></p>	
+							 <!-- input needed for reCaptcha -->
+							 <input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response">					
 
 							<div class="form-process">
 								<div class="css3-spinner">
@@ -48,14 +63,14 @@
 								<div class="col-md-4 form-group">
 									<label for="template-contactform-name">Nume <small>*</small></label>
 									<input type="text" id="template-contactform-name" name="template-contactform-name"
-										value="" class="sm-form-control required" />
+										value="" class="sm-form-control required" required />
 								</div>
 
 								<div class="col-md-4 form-group">
 									<label for="template-contactform-email">Email <small>*</small></label>
 									<input type="email" id="template-contactform-email"
 										name="template-contactform-email" value=""
-										class="required email sm-form-control" />
+										class="required email sm-form-control" required/>
 								</div>
 
 								<div class="col-md-4 form-group">
@@ -67,20 +82,20 @@
 								<div class="w-100"></div>
 
 								<div class="col-md-4 form-group">
-									<label for="template-contactform-subject">Check-in</label>
-									<input type="date" id="template-contactform-subject" name="subject" value=""
+									<label for="template-contactform-checkin">Check-in</label>
+									<input type="date" id="template-contactform-checkin" name="template-contactform-checkin" value=""
 										class="sm-form-control" />
 								</div>
 
 								<div class="col-md-4 form-group">
 									<label for="template-contactform-persons">Nr Persoane</label>
-									<input type="number" id="template-contactform-persons" name="persons" value=""
+									<input type="number" id="template-contactform-persons" name="template-contactform-persons" value=""
 										class="sm-form-control" />
 								</div>
 
 								<div class="col-md-4 form-group">
-									<label for="template-contactform-service">Nopți</label>
-									<select id="template-contactform-service" name="template-contactform-service"
+									<label for="template-contactform-nights">Nopți</label>
+									<select id="template-contactform-nights" name="template-contactform-nights"
 										class="sm-form-control">
 										<option value="1">1</option>
 										<option value="2">2</option>
@@ -105,23 +120,14 @@
 								<div class="col-12 form-group">
 									<label for="template-contactform-message">Mesaj <small>*</small></label>
 									<textarea class="required sm-form-control" id="template-contactform-message"
-										name="template-contactform-message" rows="6" cols="30"></textarea>
-								</div>
-
-								<div class="col-12 form-group d-none">
-									<input type="text" id="template-contactform-botcheck"
-										name="template-contactform-botcheck" value="" class="sm-form-control" />
+										name="template-contactform-message" rows="6" cols="30" required></textarea>
 								</div>
 
 								<div class="col-12 form-group">
 									<button class="button button-3d m-0" type="submit" id="template-contactform-submit"
-										name="template-contactform-submit" value="submit">Trimite msesaj</button>
+										name="submit" value="submit">Trimite msesaj</button>
 								</div>
 							</div>
-
-							<input type="hidden" name="prefix" value="template-contactform-">
-							<input type="hidden" name="subject" value="Message from Contact Form">
-
 						</form>
 					</div>
 
@@ -168,4 +174,20 @@
 		src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d48537.6423840641!2d22.75944271516214!3d47.36055925196731!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4748751cc0000003%3A0x91f36d854c48411d!2sPensiunea%20Sophia!5e0!3m2!1sro!2sro!4v1646135036799!5m2!1sro!2sro"
 		height="500" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
 </section>
+<!-- CAPTCHA -->
+<script>
+    function getReCaptcha() {
+        grecaptcha.ready(function () {
+            grecaptcha.execute("<?php echo $site_key ?>", { action: 'homepage' }).then(function (token) {
+                document.getElementById("g-recaptcha-response").value = token;
+            });
+        });
+
+    }
+    getReCaptcha();
+    //Refesh token Every 110 Seconds
+    setInterval(function () {
+        getReCaptcha();
+    }, 110 * 1000)
+</script>
 <?php include "PHP/footer.php"; ?>

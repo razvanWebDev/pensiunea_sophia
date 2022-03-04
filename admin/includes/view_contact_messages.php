@@ -1,5 +1,5 @@
 <!-- DELETE USERS -->
-<?php $page_title = "Contact form messages"; ?>
+<?php $page_title = "Mesaje formular contact"; ?>
 <?php include "includes/page_title.php"; ?>
 
 <!-- Main content -->
@@ -17,6 +17,9 @@
             <th>Nume</th>
             <th>Email</th>
             <th>Telefon</th>
+            <th>Data checkin</th>
+            <th>Nr. nopti</th>
+            <th>Nr. persoane</th>
             <th>Mesaj</th>
           </tr>
         </thead>
@@ -55,6 +58,9 @@
             $name = $row['name'];
             $email = $row['email'];
             $phone = $row['phone'];
+            $checkin = $row['checkin'] != "0000-00-00" ? $row['checkin'] : "";
+            $nights = $row['nights'] > 0 ? $row['nights'] : "";
+            $persons = $row['persons'] > 0 ? $row['persons'] : "";
             $message = $row['message'];
 
             $timestamp = strtotime($row['timestamp']);
@@ -89,6 +95,15 @@
             </td>
             <td>
               <?php echo $phone ?>
+            </td>
+            <td>
+              <?php echo $checkin ?>
+            </td>
+            <td>
+              <?php echo $nights ?>
+            </td>
+            <td>
+              <?php echo $persons ?>
             </td>
             <td>
               <?php echo $short_message ?>
