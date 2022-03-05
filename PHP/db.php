@@ -2,9 +2,8 @@
 $site_key = '6LcDIlYeAAAAAK3lDX1ySTuiIpIOMbqoCGvxO04H';
 $secret_key = '6LcDIlYeAAAAACOueqDHMYwj5upyutZuEg0k2IWA';
 //website url needed for forgot password
-$website_url = "http://pensiuneasophia.great-site.net";
+$website_url = "https://pensiuneasophiasalaj.ro";
 // ONLINE official==================
-
 // $server = 'localhost';
 // $username = 'pensiune_user';
 // $password = 'j]RLk;FMjAvK';
@@ -21,7 +20,7 @@ $website_url = "http://pensiuneasophia.great-site.net";
   $server = 'localhost';
   $username = 'root';
   $password = '';
-  $dbname = 'pensiunea_sophia';    
+  $dbname = 'pensiunea_sophia'; 
 
   $connection = mysqli_connect($server, $username, $password, $dbname);
 
