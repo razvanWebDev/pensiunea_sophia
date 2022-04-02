@@ -28,7 +28,7 @@
 	<div class="container clearfix z-2">
 		<h1>CONTACT</h1>
 		<ol class="breadcrumb">
-			<li class="breadcrumb-item"><a href="/">Acasa</a></li>
+			<li class="breadcrumb-item"><a href="/">Acasă</a></li>
 			<li class="breadcrumb-item"><a href="galerie-foto">Contact</a></li>
 		</ol>
 	</div>

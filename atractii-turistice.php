@@ -11,7 +11,7 @@
 	<div class="container clearfix z-2">
 		<h1>ATRACȚII TURISTICE</h1>
 		<ol class="breadcrumb">
-			<li class="breadcrumb-item"><a href="/">Acasa</a></li>
+			<li class="breadcrumb-item"><a href="/">Acasă</a></li>
 			<li class="breadcrumb-item"><a href="atractii-turistice">Atracții Turistice</a></li>
 		</ol>
 	</div>

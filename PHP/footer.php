@@ -11,9 +11,9 @@
 
             <div class="col-md-6 text-center text-md-start">
                 Copyrights &copy; <span class="current-year-span"></span> | All Rights Reserved by Pensiunea Sophia.
-                <!-- <br>
-                <div class="copyright-links"><a href="#">Terms of Use</a> / <a href="#">Privacy Policy</a>
-                </div> -->
+                <br>
+                <div class="copyright-links"><a href="politica-de-confidentialitate" target="_blank">Politica de confidențialitate</a> / <a href="https://anpc.ro/" target="_blank">ANPC</a>
+                </div>
             </div>
 
             <div class="col-md-6 text-center text-md-end">
